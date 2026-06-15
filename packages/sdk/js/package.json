@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@mimo-ai/sdk",
+  "name": "@nexus-code/sdk",
   "version": "0.1.1",
-  "description": "TypeScript SDK for the MiMoCode API",
+  "description": "TypeScript SDK for the NexusCode API",
   "keywords": ["mimo", "mimocode", "ai", "sdk", "coding-assistant"],
   "type": "module",
   "license": "MIT",

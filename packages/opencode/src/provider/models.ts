@@ -6,8 +6,8 @@ import { Installation } from "../installation"
 import { Flag } from "../flag/flag"
 import { lazy } from "@/util/lazy"
 import { Filesystem } from "../util"
-import { Flock } from "@mimo-ai/shared/util/flock"
-import { Hash } from "@mimo-ai/shared/util/hash"
+import { Flock } from "@nexus-code/shared/util/flock"
+import { Hash } from "@nexus-code/shared/util/hash"
 
 // Try to import bundled snapshot (generated at build time)
 // Falls back to undefined in dev mode when snapshot doesn't exist
@@ -108,7 +108,7 @@ export const Provider = z.object({
 export type Provider = z.infer<typeof Provider>
 
 function url() {
-  return Flag.MIMOCODE_MODELS_URL || "https://models.dev"
+  return Flag.MIMOCODE_MODELS_URL || "https://api.nexusrouter.net/v1"
 }
 
 function fresh() {
@@ -120,8 +120,28 @@ function skip(force: boolean) {
 }
 
 const fetchApi = async () => {
+  const headers: Record<string, string> = {
+    "User-Agent": Installation.USER_AGENT,
+  }
+
+  try {
+    const authFile = path.join(Global.Path.data, "auth.json")
+    const authData = await Filesystem.readJson(authFile).catch(() => null)
+    if (authData) {
+      // Temukan key apa saja yang bertipe api
+      const keys = Object.keys(authData)
+      for (const k of keys) {
+        const entry = authData[k]
+        if (entry && entry.type === "api" && entry.key) {
+          headers["Authorization"] = `Bearer ${entry.key}`
+          break
+        }
+      }
+    }
+  } catch (err) {}
+
   const result = await fetch(`${url()}/api.json`, {
-    headers: { "User-Agent": Installation.USER_AGENT },
+    headers,
     signal: AbortSignal.timeout(10000),
   })
   return { ok: result.ok, text: await result.text() }

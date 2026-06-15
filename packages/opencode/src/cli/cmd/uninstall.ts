@@ -56,7 +56,7 @@ export const UninstallCommand = {
     UI.empty()
     UI.println(UI.logo("  "))
     UI.empty()
-    prompts.intro("Uninstall MiMoCode")
+    prompts.intro("Uninstall NexusCode")
 
     const method = await AppRuntime.runPromise(Installation.Service.use((svc) => svc.method()))
     prompts.log.info(`Installation method: ${method}`)
@@ -130,9 +130,9 @@ async function showRemovalSummary(targets: RemovalTargets, method: Installation.
 
   if (method !== "curl" && method !== "unknown") {
     const cmds: Record<string, string> = {
-      npm: "npm uninstall -g @mimo-ai/cli",
-      pnpm: "pnpm uninstall -g @mimo-ai/cli",
-      bun: "bun remove -g @mimo-ai/cli",
+      npm: "npm uninstall -g @nexus-code/cli",
+      pnpm: "pnpm uninstall -g @nexus-code/cli",
+      bun: "bun remove -g @nexus-code/cli",
       // TODO(mimocode): uncomment when published to these channels
       // brew: "brew uninstall mimocode",
       // choco: "choco uninstall mimocode",
@@ -181,9 +181,9 @@ async function executeUninstall(method: Installation.Method, targets: RemovalTar
 
   if (method !== "curl" && method !== "unknown") {
     const cmds: Record<string, string[]> = {
-      npm: ["npm", "uninstall", "-g", "@mimo-ai/cli"],
-      pnpm: ["pnpm", "uninstall", "-g", "@mimo-ai/cli"],
-      bun: ["bun", "remove", "-g", "@mimo-ai/cli"],
+      npm: ["npm", "uninstall", "-g", "@nexus-code/cli"],
+      pnpm: ["pnpm", "uninstall", "-g", "@nexus-code/cli"],
+      bun: ["bun", "remove", "-g", "@nexus-code/cli"],
       // TODO(mimocode): uncomment when published to these channels
       // brew: ["brew", "uninstall", "mimocode"],
       // choco: ["choco", "uninstall", "mimocode"],
@@ -227,7 +227,7 @@ async function executeUninstall(method: Installation.Method, targets: RemovalTar
   }
 
   UI.empty()
-  prompts.log.success("Thank you for using MiMoCode!")
+  prompts.log.success("Thank you for using NexusCode!")
 }
 
 async function getShellConfigFile(): Promise<string | null> {

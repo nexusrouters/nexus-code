@@ -3,7 +3,7 @@ import { xdgData, xdgCache, xdgConfig, xdgState } from "xdg-basedir"
 import os from "os"
 import { Context, Effect, Layer } from "effect"
 
-const APP = "mimocode"
+const APP = "nexuscode"
 
 export type ResolvedPaths = {
   mode: "mimocode_home" | "xdg"
@@ -24,7 +24,7 @@ export type ResolvedPaths = {
  * @throws if MIMOCODE_HOME is set but not an absolute path
  */
 export function resolveMimocodeHome(env: NodeJS.ProcessEnv = process.env): ResolvedPaths {
-  const home = env.MIMOCODE_HOME
+  const home = env.NEXUSCODE_HOME || env.MIMOCODE_HOME
   if (home) {
     if (!path.isAbsolute(home)) {
       throw new Error(
