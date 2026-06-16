@@ -168,7 +168,7 @@ const targets = singleFlag
 
 await $`rm -rf dist`
 
-// Optional private overlay (internal-only, e.g. the free "mimo-auto" channel).
+// Optional private overlay (internal-only, e.g. the free "nexus-auto" channel).
 // The open-source tree has no src/private/. When present (injected by the
 // internal build), its files are loaded at runtime via dynamic import, so they
 // must be added as build entrypoints — otherwise the bundler can't statically

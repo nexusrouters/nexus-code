@@ -19,10 +19,10 @@ function number(key: string) {
 
 const MIMOCODE_EXPERIMENTAL = truthy("MIMOCODE_EXPERIMENTAL")
 
-// Defaults to false. When enabled, mimocode runs in pure-mimo mode:
+// Defaults to false. When enabled, nexuscode runs in pure-nexus mode:
 //   — does NOT inherit Claude Code's settings (CLAUDE.md, ~/.claude/skills, etc.)
 //   — does NOT pick up provider API keys from environment variables
-//   — falls back to the mimo-auto model as the default
+//   — falls back to the nexus-auto model as the default
 // Set MIMOCODE_MIMO_ONLY=true to disable .claude inheritance and env-based
 // provider auto-detection.
 const MIMOCODE_MIMO_ONLY = truthy("MIMOCODE_MIMO_ONLY")
@@ -73,14 +73,14 @@ export const Flag = {
   MIMOCODE_DISABLE_PROVIDER_ENV: MIMOCODE_MIMO_ONLY || truthy("MIMOCODE_DISABLE_PROVIDER_ENV"),
   MIMOCODE_DISABLE_CLAUDE_CODE,
   get MIMOCODE_DISABLE_CLAUDE_CODE_MCP() {
-    // MCP compatibility stays on in mimo-only mode so users can reuse Claude Code
+    // MCP compatibility stays on in nexus-only mode so users can reuse Claude Code
     // MCP servers without inheriting prompts, skills, or provider env keys.
     return MIMOCODE_DISABLE_CLAUDE_CODE_ENV || truthy("MIMOCODE_DISABLE_CLAUDE_CODE_MCP")
   },
   MIMOCODE_DISABLE_CLAUDE_CODE_PROMPT: MIMOCODE_DISABLE_CLAUDE_CODE || truthy("MIMOCODE_DISABLE_CLAUDE_CODE_PROMPT"),
   // Defaults to false (enabled): markdown commands under ~/.claude/commands and
   // {project}/.claude/commands load as slash commands. Independent of the
-  // mimo-only master switch. Set MIMOCODE_DISABLE_CLAUDE_CODE_COMMANDS=true to disable.
+  // nexus-only master switch. Set MIMOCODE_DISABLE_CLAUDE_CODE_COMMANDS=true to disable.
   MIMOCODE_DISABLE_CLAUDE_CODE_COMMANDS: truthy("MIMOCODE_DISABLE_CLAUDE_CODE_COMMANDS"),
   MIMOCODE_DISABLE_CLAUDE_CODE_SKILLS,
   MIMOCODE_DISABLE_EXTERNAL_SKILLS,
@@ -125,8 +125,8 @@ export const Flag = {
   MIMOCODE_DISABLE_EMBEDDED_WEB_UI: truthy("MIMOCODE_DISABLE_EMBEDDED_WEB_UI"),
   MIMOCODE_DB: process.env["MIMOCODE_DB"],
 
-  // Defaults to true — all channels share a single mimocode.db. The per-channel
-  // DB isolation (mimocode-{channel}.db) is unnecessary for mimocode since we
+  // Defaults to true — all channels share a single nexuscode.db. The per-channel
+  // DB isolation (nexuscode-{channel}.db) is unnecessary for nexuscode since we
   // don't ship multiple release channels yet. Use MIMOCODE_HOME to isolate dev
   // environments instead. Set MIMOCODE_DISABLE_CHANNEL_DB=false to restore
   // per-channel isolation.

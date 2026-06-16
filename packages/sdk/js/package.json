@@ -3,10 +3,10 @@
   "name": "@nexus-code/sdk",
   "version": "0.1.1",
   "description": "TypeScript SDK for the NexusCode API",
-  "keywords": ["mimo", "mimocode", "ai", "sdk", "coding-assistant"],
+  "keywords": ["nexus", "nexuscode", "ai", "sdk", "coding-assistant"],
   "type": "module",
   "license": "MIT",
-  "author": "Xiaomi MiMo Team",
+  "author": "Nexus Code Team",
   "homepage": "https://nexusrouter.net",
   "repository": {
     "type": "git",

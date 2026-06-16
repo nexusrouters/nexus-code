@@ -18,7 +18,7 @@ import { Log } from "../util"
 import { createOpencodeClient } from "@nexus-code/sdk"
 import { Flag } from "../flag/flag"
 import { CodexAuthPlugin } from "./codex"
-import { MimoAuthPlugin, AnthropicProxyPlugin } from "./mimo"
+import { MimoAuthPlugin, AnthropicProxyPlugin } from "./nexus"
 import { Session } from "../session"
 import type { SessionID } from "../session/schema"
 import { NamedError } from "@nexus-code/shared/util/error"
@@ -225,7 +225,7 @@ export const layer = Layer.effect(
           directory: ctx.directory,
           headers: Flag.MIMOCODE_SERVER_PASSWORD
             ? {
-                Authorization: `Basic ${Buffer.from(`${Flag.MIMOCODE_SERVER_USERNAME ?? "mimocode"}:${Flag.MIMOCODE_SERVER_PASSWORD}`).toString("base64")}`,
+                Authorization: `Basic ${Buffer.from(`${Flag.MIMOCODE_SERVER_USERNAME ?? "nexuscode"}:${Flag.MIMOCODE_SERVER_PASSWORD}`).toString("base64")}`,
               }
             : undefined,
           fetch: async (...args) => (await Server.Default()).app.fetch(...args),
@@ -267,7 +267,7 @@ export const layer = Layer.effect(
         }
 
         // Private, internal-only plugins live in src/private/ (e.g. the free
-        // "mimo-auto" channel). That directory is NOT part of the open-source
+        // "nexus-auto" channel). That directory is NOT part of the open-source
         // tree; it is injected at build time only when the internal repo is
         // present. Auto-detected at runtime: present → loaded; absent
         // (open-source build) → skipped. Never referenced statically, so the

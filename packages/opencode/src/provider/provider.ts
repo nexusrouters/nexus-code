@@ -39,10 +39,10 @@ const BUILTIN_TIERS = new Set(["ultra", "standard", "lite"])
 const warnedContextDefaults = new Set<string>()
 
 export const DEFAULT_CHUNK_TIMEOUT = 480_000 // 8 minutes — bounds single-attempt SSE stall.
-// Tuned for mimo-v2.5-pro on MiMo Router whose cold-path TTFT after context
+// Tuned for nexus-v2.5-pro on Nexus Router whose cold-path TTFT after context
 // rebuild can dip to ~5 minutes silent. Reasoning models with multi-minute
 // thinking still emit partial chunks / heartbeats within this window. Override
-// per-provider via mimocode.json's `chunkTimeout` config for tighter or looser
+// per-provider via nexuscode.json's `chunkTimeout` config for tighter or looser
 // bounds.
 
 function shouldUseCopilotResponsesApi(modelID: string): boolean {
@@ -325,7 +325,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
           }
 
           // Region resolution precedence (highest to lowest):
-          // 1. options.region from mimocode.json provider config
+          // 1. options.region from nexuscode.json provider config
           // 2. defaultRegion from AWS_REGION environment variable
           // 3. Default "us-east-1" (baked into defaultRegion)
           const region = options?.region ?? defaultRegion
@@ -409,8 +409,8 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         options: {
           headers: {
             "HTTP-Referer": "https://nexusrouter.net/coder/",
-            "X-Title": "mimocode",
-            "X-Source": "mimocode",
+            "X-Title": "nexuscode",
+            "X-Source": "nexuscode",
           },
         },
       }),
@@ -420,7 +420,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         options: {
           headers: {
             "HTTP-Referer": "https://nexusrouter.net/coder/",
-            "X-Title": "mimocode",
+            "X-Title": "nexuscode",
             "X-OpenRouter-Categories": "programming,programming-app,cli-agent",
           },
         },
@@ -431,7 +431,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         options: {
           headers: {
             "HTTP-Referer": "https://nexusrouter.net/coder/",
-            "X-Title": "mimocode",
+            "X-Title": "nexuscode",
           },
         },
       }),
@@ -441,7 +441,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         options: {
           headers: {
             "http-referer": "https://nexusrouter.net/coder/",
-            "x-title": "mimocode",
+            "x-title": "nexuscode",
           },
         },
       }),
@@ -539,7 +539,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         options: {
           headers: {
             "HTTP-Referer": "https://nexusrouter.net/coder/",
-            "X-Title": "mimocode",
+            "X-Title": "nexuscode",
           },
         },
       }),
@@ -564,7 +564,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
       const directory = yield* InstanceState.directory
 
       const aiGatewayHeaders = {
-        "User-Agent": `mimocode/${InstallationVersion} gitlab-ai-provider/${GITLAB_PROVIDER_VERSION} (${os.platform()} ${os.release()}; ${os.arch()})`,
+        "User-Agent": `nexuscode/${InstallationVersion} gitlab-ai-provider/${GITLAB_PROVIDER_VERSION} (${os.platform()} ${os.release()}; ${os.arch()})`,
         "anthropic-beta": "context-1m-2025-08-07",
         ...providerConfig?.options?.aiGatewayHeaders,
       }
@@ -717,7 +717,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         options: {
           apiKey,
           headers: {
-            "User-Agent": `mimocode/${InstallationVersion} cloudflare-workers-ai (${os.platform()} ${os.release()}; ${os.arch()})`,
+            "User-Agent": `nexuscode/${InstallationVersion} cloudflare-workers-ai (${os.platform()} ${os.release()}; ${os.arch()})`,
           },
         },
         async getModel(sdk: any, modelID: string) {
@@ -765,7 +765,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
       if (!apiToken) {
         throw new Error(
           "CLOUDFLARE_API_TOKEN (or CF_AIG_TOKEN) is required for Cloudflare AI Gateway. " +
-            "Set it via environment variable or run `mimocode auth cloudflare-ai-gateway`.",
+            "Set it via environment variable or run `nexuscode auth cloudflare-ai-gateway`.",
         )
       }
 
@@ -788,7 +788,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         skipCache: input.options?.skipCache,
         collectLog: input.options?.collectLog,
         headers: {
-          "User-Agent": `mimocode/${InstallationVersion} cloudflare-ai-gateway (${os.platform()} ${os.release()}; ${os.arch()})`,
+          "User-Agent": `nexuscode/${InstallationVersion} cloudflare-ai-gateway (${os.platform()} ${os.release()}; ${os.arch()})`,
         },
       }
 
@@ -814,7 +814,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         autoload: false,
         options: {
           headers: {
-            "X-Cerebras-3rd-Party-Integration": "mimocode",
+            "X-Cerebras-3rd-Party-Integration": "nexuscode",
           },
         },
       }),
@@ -824,7 +824,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         options: {
           headers: {
             "HTTP-Referer": "https://nexusrouter.net/coder/",
-            "X-Title": "mimocode",
+            "X-Title": "nexuscode",
           },
         },
       }),
@@ -1224,7 +1224,7 @@ const layer: Layer.Layer<
                       providerID,
                       modelID,
                       defaulting_to: DEFAULT_CONTEXT_WINDOW,
-                      fix: `Set limit.context explicitly in mimocode.json under provider.${providerID}.models.${modelID}`,
+                      fix: `Set limit.context explicitly in nexuscode.json under provider.${providerID}.models.${modelID}`,
                     })
                   }
                   return DEFAULT_CONTEXT_WINDOW
@@ -1248,7 +1248,7 @@ const layer: Layer.Layer<
           database[providerID] = parsed
         }
 
-        // load env (skipped in mimo-only mode so ANTHROPIC_API_KEY etc. don't auto-light other providers)
+        // load env (skipped in nexus-only mode so ANTHROPIC_API_KEY etc. don't auto-light other providers)
         if (!Flag.MIMOCODE_DISABLE_PROVIDER_ENV) {
           const envs = yield* env.all()
           for (const [id, provider] of Object.entries(database)) {
@@ -1715,9 +1715,9 @@ const layer: Layer.Layer<
         return { providerID: entry.providerID, modelID: entry.modelID }
       }
 
-      const mimo = s.providers[ProviderID.make("mimo")]
-      if (mimo?.models[ModelID.make("mimo-auto")]) {
-        return { providerID: mimo.id, modelID: ModelID.make("mimo-auto") }
+      const nexus = s.providers[ProviderID.make("nexus")]
+      if (nexus?.models[ModelID.make("nexus-auto")]) {
+        return { providerID: nexus.id, modelID: ModelID.make("nexus-auto") }
       }
 
       const provider = Object.values(s.providers).find((p) => !cfg.provider || Object.keys(cfg.provider).includes(p.id))

@@ -113,9 +113,9 @@ export const dict = {
   "tui.tips.cycle_sessions":
     "Нажимайте {highlight}Ctrl+X Right/Left{/highlight}, чтобы переключаться между родительской и дочерними сессиями",
   "tui.tips.config_files":
-    "Создайте {highlight}mimocode.json{/highlight} для серверных настроек и {highlight}tui.json{/highlight} для настроек TUI",
+    "Создайте {highlight}nexuscode.json{/highlight} для серверных настроек и {highlight}tui.json{/highlight} для настроек TUI",
   "tui.tips.global_config":
-    "Поместите настройки TUI в {highlight}~/.config/mimocode/tui.json{/highlight} как глобальные",
+    "Поместите настройки TUI в {highlight}~/.config/nexuscode/tui.json{/highlight} как глобальные",
   "tui.tips.schema":
     "Добавьте {highlight}$schema{/highlight} в конфиг для автодополнения в редакторе",
   "tui.tips.default_model":
@@ -129,13 +129,13 @@ export const dict = {
   "tui.tips.mcp_oauth":
     "NexusCode автоматически обрабатывает OAuth для удалённых MCP-серверов с авторизацией",
   "tui.tips.custom_command":
-    "Добавляйте файлы {highlight}.md{/highlight} в {highlight}.mimocode/command/{/highlight} для повторно используемых пользовательских команд",
+    "Добавляйте файлы {highlight}.md{/highlight} в {highlight}.nexuscode/command/{/highlight} для повторно используемых пользовательских команд",
   "tui.tips.command_args":
     "Используйте {highlight}$ARGUMENTS{/highlight}, {highlight}$1{/highlight}, {highlight}$2{/highlight} в командах для динамического ввода",
   "tui.tips.command_backticks":
     "Используйте обратные кавычки в командах, чтобы вставить вывод shell (например, {highlight}`git status`{/highlight})",
   "tui.tips.custom_agent":
-    "Добавляйте файлы {highlight}.md{/highlight} в {highlight}.mimocode/agent/{/highlight} для специализированных AI-персон",
+    "Добавляйте файлы {highlight}.md{/highlight} в {highlight}.nexuscode/agent/{/highlight} для специализированных AI-персон",
   "tui.tips.agent_perms":
     "Настройте для каждого агента отдельные права на инструменты {highlight}edit{/highlight}, {highlight}bash{/highlight} и {highlight}webfetch{/highlight}",
   "tui.tips.bash_allow":
@@ -152,43 +152,43 @@ export const dict = {
     "Определяйте собственные команды форматирования по расширениям файлов в конфиге",
   "tui.tips.lsp": "NexusCode использует LSP-серверы для интеллектуального анализа кода",
   "tui.tips.custom_tool":
-    "Создавайте файлы {highlight}.ts{/highlight} в {highlight}.mimocode/tools/{/highlight}, чтобы определить новые LLM-инструменты",
+    "Создавайте файлы {highlight}.ts{/highlight} в {highlight}.nexuscode/tools/{/highlight}, чтобы определить новые LLM-инструменты",
   "tui.tips.tool_scripts":
     "Определения инструментов могут вызывать скрипты на Python, Go и других языках",
   "tui.tips.plugins":
-    "Добавляйте файлы {highlight}.ts{/highlight} в {highlight}.mimocode/plugin/{/highlight} для подключения хуков событий",
+    "Добавляйте файлы {highlight}.ts{/highlight} в {highlight}.nexuscode/plugin/{/highlight} для подключения хуков событий",
   "tui.tips.plugin_notify":
     "Используйте плагины, чтобы отправлять системные уведомления при завершении сессий",
   "tui.tips.plugin_protect":
     "Создайте плагин, который запретит NexusCode читать чувствительные файлы",
   "tui.tips.run":
-    "Используйте {highlight}mimo run{/highlight} для неинтерактивных скриптов",
+    "Используйте {highlight}nexus run{/highlight} для неинтерактивных скриптов",
   "tui.tips.continue":
-    "Используйте {highlight}mimo --continue{/highlight}, чтобы продолжить последнюю сессию",
+    "Используйте {highlight}nexus --continue{/highlight}, чтобы продолжить последнюю сессию",
   "tui.tips.attach_cli":
-    "Используйте {highlight}mimo run -f file.ts{/highlight}, чтобы прикрепить файлы из командной строки",
+    "Используйте {highlight}nexus run -f file.ts{/highlight}, чтобы прикрепить файлы из командной строки",
   "tui.tips.format_json":
     "Используйте {highlight}--format json{/highlight} для машинно-читаемого вывода в скриптах",
   "tui.tips.serve":
-    "Запустите {highlight}mimo serve{/highlight} для headless-доступа к API NexusCode",
+    "Запустите {highlight}nexus serve{/highlight} для headless-доступа к API NexusCode",
   "tui.tips.attach_server":
-    "Используйте {highlight}mimo run --attach{/highlight}, чтобы подключиться к запущенному серверу",
+    "Используйте {highlight}nexus run --attach{/highlight}, чтобы подключиться к запущенному серверу",
   "tui.tips.upgrade":
-    "Выполните {highlight}mimo upgrade{/highlight}, чтобы обновиться до последней версии",
+    "Выполните {highlight}nexus upgrade{/highlight}, чтобы обновиться до последней версии",
   "tui.tips.auth_list":
-    "Выполните {highlight}mimo auth list{/highlight}, чтобы увидеть всех настроенных провайдеров",
+    "Выполните {highlight}nexus auth list{/highlight}, чтобы увидеть всех настроенных провайдеров",
   "tui.tips.agent_create":
-    "Выполните {highlight}mimo agent create{/highlight}, чтобы создать агента в пошаговом режиме",
+    "Выполните {highlight}nexus agent create{/highlight}, чтобы создать агента в пошаговом режиме",
   "tui.tips.github_trigger":
     "Используйте {highlight}/opencode{/highlight} в issue/PR на GitHub, чтобы запускать AI-действия",
   "tui.tips.github_install":
-    "Выполните {highlight}mimo github install{/highlight}, чтобы настроить GitHub-workflow",
+    "Выполните {highlight}nexus github install{/highlight}, чтобы настроить GitHub-workflow",
   "tui.tips.github_oc":
     "Оставьте {highlight}/oc{/highlight} в комментарии к строке PR для точечного код-ревью",
   "tui.tips.theme_system":
     'Используйте {highlight}"theme": "system"{/highlight}, чтобы соответствовать цветам терминала',
   "tui.tips.theme_files":
-    "Создавайте JSON-файлы тем в каталоге {highlight}.mimocode/themes/{/highlight}",
+    "Создавайте JSON-файлы тем в каталоге {highlight}.nexuscode/themes/{/highlight}",
   "tui.tips.theme_variants":
     "Темы поддерживают тёмные и светлые варианты для обоих режимов",
   "tui.tips.theme_ansi": "Ссылайтесь на ANSI-цвета 0-255 в собственных темах",
@@ -219,7 +219,7 @@ export const dict = {
   "tui.tips.external_dir":
     "Разрешение {highlight}external_directory{/highlight} защищает файлы вне проекта",
   "tui.tips.debug_config":
-    "Выполните {highlight}mimo debug config{/highlight}, чтобы диагностировать проблемы конфигурации",
+    "Выполните {highlight}nexus debug config{/highlight}, чтобы диагностировать проблемы конфигурации",
   "tui.tips.print_logs":
     "Используйте флаг {highlight}--print-logs{/highlight}, чтобы видеть подробные логи в stderr",
   "tui.tips.timeline":
@@ -422,7 +422,7 @@ export const dict = {
   "tui.command.voice.control.title": "Переключить голосовое управление (мультимодальное)",
   "tui.command.voice.control.title_on": "Голосовое управление: включено (мультимодальное) — нажмите для отключения",
   "tui.command.voice.control.title_off": "Голосовое управление: отключено (быстрый ASR) — нажмите для включения",
-  "tui.voice.error.no_auth": "Сначала войдите в аккаунт MiMo",
+  "tui.voice.error.no_auth": "Сначала войдите в аккаунт Nexus",
   "tui.voice.error.no_recorder": "Инструмент записи не найден, установите sox",
   "tui.voice.error.too_short": "Запись слишком короткая",
   "tui.voice.error.network": "Ошибка транскрипции, проверьте сеть",
@@ -436,12 +436,12 @@ export const dict = {
   "tui.command.plugins.list.title": "Плагины",
   "tui.command.plugins.install.title": "Установить плагин",
 
-  // MiMo Auto (free) — TUI login dialog
-  "tui.dialog.login.mimo_free": "MiMo Auto (free)",
-  "tui.dialog.login.mimo_free.desc": "Анонимный бесплатный канал — вход не требуется",
-  "tui.dialog.login.mimo_free.success": "MiMo Auto (free) готов — модель по умолчанию: mimo/mimo-auto",
-  "tui.dialog.login.mimo_free.unavailable": "Провайдер MiMo Auto (free) не загружен",
-  "tui.dialog.login.flow.title": "Вход в MiMo",
+  // Nexus Auto (free) — TUI login dialog
+  "tui.dialog.login.nexus_free": "Nexus Auto (free)",
+  "tui.dialog.login.nexus_free.desc": "Анонимный бесплатный канал — вход не требуется",
+  "tui.dialog.login.nexus_free.success": "Nexus Auto (free) готов — модель по умолчанию: nexus/nexus-auto",
+  "tui.dialog.login.nexus_free.unavailable": "Провайдер Nexus Auto (free) не загружен",
+  "tui.dialog.login.flow.title": "Вход в Nexus",
   "tui.dialog.login.flow.placeholder": "Вставьте код (или дождитесь обратного вызова браузера)",
   "tui.dialog.login.flow.busy": "Вход...",
   "tui.dialog.login.flow.manual_hint": "Браузер не открылся? Нажмите на ссылку ниже, чтобы скопировать:",
@@ -452,16 +452,16 @@ export const dict = {
   // CLI: providers command (auth login)
   "cli.providers.select": "Выберите провайдера",
   "cli.providers.other": "Другой провайдер",
-  "cli.providers.mimo.recommended_hint": "рекомендуется",
-  "cli.providers.mimo_free.hint": "Анонимный бесплатный канал / mimo-auto",
-  "cli.providers.mimo_free.verifying": "Проверка канала MiMo Auto (free)...",
-  "cli.providers.mimo_free.ready": "Канал MiMo Auto (free) готов",
-  "cli.providers.mimo_free.failed": "Не удалось проверить MiMo Auto (free)",
-  "cli.providers.mimo_free.default_set": "Модель по умолчанию: mimo/mimo-auto (контекст 1M, бесплатно)",
-  "cli.providers.mimo_free.usage_hint":
-    "Вход не требуется — просто запустите mimo. Для платных/премиум-моделей выберите вход через браузер MiMo.",
-  "cli.providers.mimo_login.decrypt_retry": "Ошибка расшифровки, повторите попытку (осталось попыток: {remaining})",
-  "cli.providers.mimo_login.decrypt_exhausted": "Ошибка расшифровки, превышено максимальное число попыток",
+  "cli.providers.nexus.recommended_hint": "рекомендуется",
+  "cli.providers.nexus_free.hint": "Анонимный бесплатный канал / nexus-auto",
+  "cli.providers.nexus_free.verifying": "Проверка канала Nexus Auto (free)...",
+  "cli.providers.nexus_free.ready": "Канал Nexus Auto (free) готов",
+  "cli.providers.nexus_free.failed": "Не удалось проверить Nexus Auto (free)",
+  "cli.providers.nexus_free.default_set": "Модель по умолчанию: nexus/nexus-auto (контекст 1M, бесплатно)",
+  "cli.providers.nexus_free.usage_hint":
+    "Вход не требуется — просто запустите nexus. Для платных/премиум-моделей выберите вход через браузер Nexus.",
+  "cli.providers.nexus_login.decrypt_retry": "Ошибка расшифровки, повторите попытку (осталось попыток: {remaining})",
+  "cli.providers.nexus_login.decrypt_exhausted": "Ошибка расшифровки, превышено максимальное число попыток",
 
   // Question i18n — plan_exit
   "tui.question.plan_exit.question": "План {{plan}} завершён. Переключиться на агента build и начать реализацию?",

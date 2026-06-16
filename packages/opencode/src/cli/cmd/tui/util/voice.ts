@@ -138,10 +138,10 @@ export async function transcribeAudio(opts: {
     headers: {
       "Content-Type": "application/json",
       "api-key": opts.apiKey,
-      "X-Mimo-Source": "mimocode-cli",
+      "X-Mimo-Source": "nexuscode-cli",
     },
     body: JSON.stringify({
-      model: "mimo-v2.5-asr",
+      model: "nexus-v2.5-asr",
       messages: [{ role: "user", content: [{ type: "input_audio", input_audio: { data: dataUrl } }] }],
       asr_options: { language: "auto" },
     }),
@@ -328,10 +328,10 @@ export async function processVoiceControl(opts: {
     headers: {
       "Content-Type": "application/json",
       "api-key": opts.apiKey,
-      "X-Mimo-Source": "mimocode-cli",
+      "X-Mimo-Source": "nexuscode-cli",
     },
     body: JSON.stringify({
-      model: "mimo-v2.5",
+      model: "nexus-v2.5",
       messages: [
         { role: "system", content: VOICE_CONTROL_SYSTEM_PROMPT },
         {

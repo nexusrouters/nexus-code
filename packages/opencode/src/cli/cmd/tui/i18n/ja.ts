@@ -96,9 +96,9 @@ export const dict = {
   "tui.tips.subagent": "プロンプト内で {highlight}@agent-name{/highlight} を使うと専用サブエージェントを呼び出します",
   "tui.tips.cycle_sessions": "{highlight}Ctrl+X Right/Left{/highlight} で親子セッション間を移動します",
   "tui.tips.config_files":
-    "サーバ設定は {highlight}mimocode.json{/highlight}、TUI 設定は {highlight}tui.json{/highlight} を作成します",
+    "サーバ設定は {highlight}nexuscode.json{/highlight}、TUI 設定は {highlight}tui.json{/highlight} を作成します",
   "tui.tips.global_config":
-    "TUI 設定をグローバルに置くなら {highlight}~/.config/mimocode/tui.json{/highlight} を使います",
+    "TUI 設定をグローバルに置くなら {highlight}~/.config/nexuscode/tui.json{/highlight} を使います",
   "tui.tips.schema": "設定に {highlight}$schema{/highlight} を加えるとエディタで自動補完されます",
   "tui.tips.default_model": "設定の {highlight}model{/highlight} でデフォルトモデルを指定します",
   "tui.tips.keybinds":
@@ -107,13 +107,13 @@ export const dict = {
   "tui.tips.mcp_config": "{highlight}mcp{/highlight} 設定セクションでローカル/リモート MCP サーバを設定します",
   "tui.tips.mcp_oauth": "NexusCode は認証が必要なリモート MCP サーバの OAuth を自動処理します",
   "tui.tips.custom_command":
-    "{highlight}.mimocode/command/{/highlight} に {highlight}.md{/highlight} ファイルを追加すると再利用可能なカスタムプロンプトを定義できます",
+    "{highlight}.nexuscode/command/{/highlight} に {highlight}.md{/highlight} ファイルを追加すると再利用可能なカスタムプロンプトを定義できます",
   "tui.tips.command_args":
     "カスタムコマンドで {highlight}$ARGUMENTS{/highlight}、{highlight}$1{/highlight}、{highlight}$2{/highlight} を使うと動的な入力を受け取れます",
   "tui.tips.command_backticks":
     "コマンド内でバッククォートを使うとシェル出力を埋め込めます（例：{highlight}`git status`{/highlight}）",
   "tui.tips.custom_agent":
-    "{highlight}.mimocode/agent/{/highlight} に {highlight}.md{/highlight} ファイルを追加して専用 AI ペルソナを作れます",
+    "{highlight}.nexuscode/agent/{/highlight} に {highlight}.md{/highlight} ファイルを追加して専用 AI ペルソナを作れます",
   "tui.tips.agent_perms":
     "エージェントごとに {highlight}edit{/highlight}、{highlight}bash{/highlight}、{highlight}webfetch{/highlight} ツールの権限を設定できます",
   "tui.tips.bash_allow":
@@ -126,26 +126,26 @@ export const dict = {
   "tui.tips.custom_formatter": "拡張子ごとのカスタム整形コマンドを設定で定義できます",
   "tui.tips.lsp": "NexusCode はインテリジェントなコード解析に LSP サーバを使います",
   "tui.tips.custom_tool":
-    "{highlight}.mimocode/tools/{/highlight} に {highlight}.ts{/highlight} ファイルを作って新しい LLM ツールを定義します",
+    "{highlight}.nexuscode/tools/{/highlight} に {highlight}.ts{/highlight} ファイルを作って新しい LLM ツールを定義します",
   "tui.tips.tool_scripts": "ツール定義から Python、Go などのスクリプトを呼び出せます",
   "tui.tips.plugins":
-    "{highlight}.mimocode/plugin/{/highlight} に {highlight}.ts{/highlight} ファイルを追加してイベントフックを実装できます",
+    "{highlight}.nexuscode/plugin/{/highlight} に {highlight}.ts{/highlight} ファイルを追加してイベントフックを実装できます",
   "tui.tips.plugin_notify": "プラグインでセッション完了時に OS 通知を送れます",
   "tui.tips.plugin_protect": "プラグインを書いて NexusCode が機密ファイルを読まないようにできます",
-  "tui.tips.run": "{highlight}mimo run{/highlight} で非対話的なスクリプト実行ができます",
-  "tui.tips.continue": "{highlight}mimo --continue{/highlight} で前回のセッションを再開します",
-  "tui.tips.attach_cli": "{highlight}mimo run -f file.ts{/highlight} で CLI からファイルを添付できます",
+  "tui.tips.run": "{highlight}nexus run{/highlight} で非対話的なスクリプト実行ができます",
+  "tui.tips.continue": "{highlight}nexus --continue{/highlight} で前回のセッションを再開します",
+  "tui.tips.attach_cli": "{highlight}nexus run -f file.ts{/highlight} で CLI からファイルを添付できます",
   "tui.tips.format_json": "{highlight}--format json{/highlight} を使うとスクリプトで機械可読な出力を得られます",
-  "tui.tips.serve": "{highlight}mimo serve{/highlight} を実行するとヘッドレスで NexusCode API にアクセスできます",
-  "tui.tips.attach_server": "{highlight}mimo run --attach{/highlight} で起動中のサーバに接続します",
-  "tui.tips.upgrade": "{highlight}mimo upgrade{/highlight} で最新バージョンに更新します",
-  "tui.tips.auth_list": "{highlight}mimo auth list{/highlight} で設定済みプロバイダを確認します",
-  "tui.tips.agent_create": "{highlight}mimo agent create{/highlight} でガイド付きエージェント作成を行います",
+  "tui.tips.serve": "{highlight}nexus serve{/highlight} を実行するとヘッドレスで NexusCode API にアクセスできます",
+  "tui.tips.attach_server": "{highlight}nexus run --attach{/highlight} で起動中のサーバに接続します",
+  "tui.tips.upgrade": "{highlight}nexus upgrade{/highlight} で最新バージョンに更新します",
+  "tui.tips.auth_list": "{highlight}nexus auth list{/highlight} で設定済みプロバイダを確認します",
+  "tui.tips.agent_create": "{highlight}nexus agent create{/highlight} でガイド付きエージェント作成を行います",
   "tui.tips.github_trigger": "GitHub の issue/PR で {highlight}/opencode{/highlight} を入力すると AI を起動します",
-  "tui.tips.github_install": "{highlight}mimo github install{/highlight} で GitHub workflow を設定します",
+  "tui.tips.github_install": "{highlight}nexus github install{/highlight} で GitHub workflow を設定します",
   "tui.tips.github_oc": "PR のコード行に {highlight}/oc{/highlight} とコメントすると的を絞ったレビューが行われます",
   "tui.tips.theme_system": '{highlight}"theme": "system"{/highlight} でターミナルの配色に合わせます',
-  "tui.tips.theme_files": "{highlight}.mimocode/themes/{/highlight} ディレクトリに JSON テーマファイルを作成します",
+  "tui.tips.theme_files": "{highlight}.nexuscode/themes/{/highlight} ディレクトリに JSON テーマファイルを作成します",
   "tui.tips.theme_variants": "テーマはダーク/ライトのバリアントをサポートします",
   "tui.tips.theme_ansi": "カスタムテーマで ANSI カラー 0-255 を参照できます",
   "tui.tips.env_var":
@@ -166,7 +166,7 @@ export const dict = {
   "tui.tips.doom_loop": "権限 {highlight}doom_loop{/highlight} がツール呼び出しの無限ループを防ぎます",
   "tui.tips.external_dir":
     "権限 {highlight}external_directory{/highlight} がプロジェクト外のファイルを保護します",
-  "tui.tips.debug_config": "{highlight}mimo debug config{/highlight} で設定の問題を調査します",
+  "tui.tips.debug_config": "{highlight}nexus debug config{/highlight} で設定の問題を調査します",
   "tui.tips.print_logs": "{highlight}--print-logs{/highlight} フラグで stderr に詳細ログを出力します",
   "tui.tips.timeline":
     "{highlight}Ctrl+X G{/highlight} または {highlight}/timeline{/highlight} で特定のメッセージにジャンプします",
@@ -362,7 +362,7 @@ export const dict = {
   "tui.command.voice.control.title": "音声制御を切り替え（マルチモーダル）",
   "tui.command.voice.control.title_on": "音声制御：有効（マルチモーダル） — クリックで無効化",
   "tui.command.voice.control.title_off": "音声制御：無効（高速ASR） — クリックで有効化",
-  "tui.voice.error.no_auth": "まず MiMo アカウントにログインしてください",
+  "tui.voice.error.no_auth": "まず Nexus アカウントにログインしてください",
   "tui.voice.error.no_recorder": "録音ツールが見つかりません。sox をインストールしてください",
   "tui.voice.error.too_short": "録音時間が短すぎます",
   "tui.voice.error.network": "文字起こしに失敗しました。ネットワークを確認してください",
@@ -376,12 +376,12 @@ export const dict = {
   "tui.command.plugins.list.title": "プラグイン",
   "tui.command.plugins.install.title": "プラグインをインストール",
 
-  // MiMo Auto (free) — TUI login dialog
-  "tui.dialog.login.mimo_free": "MiMo Auto (free)",
-  "tui.dialog.login.mimo_free.desc": "ログイン不要の匿名無料チャネル",
-  "tui.dialog.login.mimo_free.success": "MiMo Auto (free) の準備完了 — デフォルトモデルを mimo/mimo-auto に設定しました",
-  "tui.dialog.login.mimo_free.unavailable": "MiMo Auto (free) プロバイダーが読み込まれていません",
-  "tui.dialog.login.flow.title": "MiMo ログイン",
+  // Nexus Auto (free) — TUI login dialog
+  "tui.dialog.login.nexus_free": "Nexus Auto (free)",
+  "tui.dialog.login.nexus_free.desc": "ログイン不要の匿名無料チャネル",
+  "tui.dialog.login.nexus_free.success": "Nexus Auto (free) の準備完了 — デフォルトモデルを nexus/nexus-auto に設定しました",
+  "tui.dialog.login.nexus_free.unavailable": "Nexus Auto (free) プロバイダーが読み込まれていません",
+  "tui.dialog.login.flow.title": "Nexus ログイン",
   "tui.dialog.login.flow.placeholder": "コードを貼り付け（またはブラウザコールバックを待機）",
   "tui.dialog.login.flow.busy": "ログイン中...",
   "tui.dialog.login.flow.manual_hint": "ブラウザが開きませんか？下のリンクをクリックしてコピー：",
@@ -392,16 +392,16 @@ export const dict = {
   // CLI: providers command (auth login)
   "cli.providers.select": "プロバイダーを選択",
   "cli.providers.other": "その他のプロバイダー",
-  "cli.providers.mimo.recommended_hint": "推奨",
-  "cli.providers.mimo_free.hint": "匿名無料チャネル / mimo-auto",
-  "cli.providers.mimo_free.verifying": "MiMo Auto (free) チャネルを検証中...",
-  "cli.providers.mimo_free.ready": "MiMo Auto (free) チャネル準備完了",
-  "cli.providers.mimo_free.failed": "MiMo Auto (free) の自己診断に失敗",
-  "cli.providers.mimo_free.default_set": "デフォルトモデルを mimo/mimo-auto に設定（1M コンテキスト、無料）",
-  "cli.providers.mimo_free.usage_hint":
-    "ログイン不要 — そのまま mimo を実行できます。有料/上位モデルを利用する場合は MiMo ブラウザログインを選択してください。",
-  "cli.providers.mimo_login.decrypt_retry": "復号に失敗しました、再試行してください（残り {remaining} 回）",
-  "cli.providers.mimo_login.decrypt_exhausted": "復号に失敗しました、最大再試行回数に達しました",
+  "cli.providers.nexus.recommended_hint": "推奨",
+  "cli.providers.nexus_free.hint": "匿名無料チャネル / nexus-auto",
+  "cli.providers.nexus_free.verifying": "Nexus Auto (free) チャネルを検証中...",
+  "cli.providers.nexus_free.ready": "Nexus Auto (free) チャネル準備完了",
+  "cli.providers.nexus_free.failed": "Nexus Auto (free) の自己診断に失敗",
+  "cli.providers.nexus_free.default_set": "デフォルトモデルを nexus/nexus-auto に設定（1M コンテキスト、無料）",
+  "cli.providers.nexus_free.usage_hint":
+    "ログイン不要 — そのまま nexus を実行できます。有料/上位モデルを利用する場合は Nexus ブラウザログインを選択してください。",
+  "cli.providers.nexus_login.decrypt_retry": "復号に失敗しました、再試行してください（残り {remaining} 回）",
+  "cli.providers.nexus_login.decrypt_exhausted": "復号に失敗しました、最大再試行回数に達しました",
 
   // Question i18n — plan_exit
   "tui.question.plan_exit.question": "{{plan}} の計画が完了しました。build エージェントに切り替えて実装を開始しますか？",

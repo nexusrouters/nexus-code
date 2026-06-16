@@ -9271,7 +9271,7 @@
             "type": "string"
           },
           "params": {
-            "description": "Template parameters for i18n interpolation (e.g. { plan: '.mimocode/plans/...' })",
+            "description": "Template parameters for i18n interpolation (e.g. { plan: '.nexuscode/plans/...' })",
             "type": "object",
             "propertyNames": {
               "type": "string"
@@ -12815,7 +12815,7 @@
         "enum": ["DEBUG", "INFO", "WARN", "ERROR"]
       },
       "ServerConfig": {
-        "description": "Server configuration for mimo serve and web commands",
+        "description": "Server configuration for nexus serve and web commands",
         "type": "object",
         "properties": {
           "port": {

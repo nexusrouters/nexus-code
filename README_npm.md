@@ -10,7 +10,7 @@
 
 NexusCode is a terminal-native AI coding assistant. It can read and write code, run commands, manage Git, and use a persistent memory system to keep a deep understanding of your project across sessions while continuously improving itself.
 
-MiMo Auto is built in as a free-for-limited-time channel, so you can start with zero configuration. NexusCode also supports connecting to any mainstream LLM provider API.
+Nexus Auto is built in as a free-for-limited-time channel, so you can start with zero configuration. NexusCode also supports connecting to any mainstream LLM provider API.
 
 ---
 
@@ -24,12 +24,12 @@ curl -fsSL https://nexusrouter.net/install | bash
 npm install -g @nexus-code/cli
 
 # Run
-mimo
+nexus
 ```
 
 The first launch guides you through configuration automatically. Supported options:
-- **MiMo Auto (free for a limited time)** — anonymous channel, zero configuration
-- **Xiaomi MiMo Platform** — OAuth login
+- **Nexus Auto (free for a limited time)** — anonymous channel, zero configuration
+- **Nexus Code Platform** — OAuth login
 - **Import from Claude Code** — migrate existing authentication in one step
 - **Custom Provider** — add any OpenAI-compatible API in the TUI
 
@@ -91,7 +91,7 @@ Compose mode provides a structured workflow for specs-driven development. It inc
 
 ### Voice Input
 
-Real-time streaming voice input powered by TenVAD and MiMo ASR. Activate with `/voice`, then speak — audio is segmented by pauses and transcribed incrementally into the input. Available for MiMo logged-in users. Requires `sox` (`brew install sox` on macOS, other platforms similar).
+Real-time streaming voice input powered by TenVAD and Nexus ASR. Activate with `/voice`, then speak — audio is segmented by pauses and transcribed incrementally into the input. Available for Nexus logged-in users. Requires `sox` (`brew install sox` on macOS, other platforms similar).
 
 <details>
 <summary><strong>WSLg audio setup</strong></summary>
@@ -127,7 +127,7 @@ export PULSE_SERVER=tcp:127.0.0.1:4713
 
 ## Configuration
 
-NexusCode is configured via `.mimocode/mimocode.json` in the project directory (or `~/.config/mimocode/mimocode.json` globally). Key options include:
+NexusCode is configured via `.nexuscode/nexuscode.json` in the project directory (or `~/.config/nexuscode/nexuscode.json` globally). Key options include:
 
 - Provider and model selection
 - Agent permissions and custom agents
@@ -144,5 +144,5 @@ Max Mode (parallel best-of-N reasoning with judge selection) can be enabled via 
 Source code is licensed under the [MIT License](https://github.com/nexusrouters/nexus-code/blob/main/LICENSE).
 
 Use of NexusCode is also subject to the [Use Restrictions](https://github.com/nexusrouters/nexus-code/blob/main/USE_RESTRICTIONS.md).
-Use of Xiaomi MiMo-hosted services is subject to the [MiMo Terms of Service](https://nexusrouter.net/docs/terms/user-agreement).
-Use of the MiMo name, logo, and trademarks is subject to the MiMo Trademark Policy.
+Use of Nexus-hosted services is subject to the [Nexus Terms of Service](https://nexusrouter.net/docs/terms/user-agreement).
+Use of the Nexus name, logo, and trademarks is subject to the Nexus Trademark Policy.

@@ -3,7 +3,7 @@ import { Effect } from "effect"
 import { HttpClient } from "effect/unstable/http"
 import * as Tool from "../tool"
 import * as McpExa from "../mcp-exa"
-import * as MimoWebsearch from "./mimo"
+import * as MimoWebsearch from "./nexus"
 import { Auth } from "@/auth"
 import { Provider } from "@/provider"
 import DESCRIPTION from "./websearch.txt"
@@ -73,7 +73,7 @@ export const WebSearchTool = Tool.define(
                       model.api.url,
                       info.key,
                       params.query,
-                      "mimo-v2.5",
+                      "nexus-v2.5",
                       timeout ?? "30 seconds",
                     )
                   }),

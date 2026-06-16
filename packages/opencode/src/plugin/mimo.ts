@@ -7,17 +7,17 @@ import { Global } from "../global"
 import path from "path"
 import fs from "fs"
 
-const log = Log.create({ service: "plugin.mimo" })
+const log = Log.create({ service: "plugin.nexus" })
 
 const PLATFORM_URL = process.env.MIMO_PLATFORM_URL || "https://nexusrouter.net"
 
 function getKeyName(): string {
-  const filePath = path.join(Global.Path.data, "mimo-key-name")
+  const filePath = path.join(Global.Path.data, "nexus-key-name")
   try {
     const existing = fs.readFileSync(filePath, "utf-8").trim()
     if (existing) return existing
   } catch {}
-  const name = `mimo-code-cli-key-${crypto.randomBytes(4).toString("hex")}`
+  const name = `nexus-code-cli-key-${crypto.randomBytes(4).toString("hex")}`
   fs.writeFileSync(filePath, name)
   return name
 }
@@ -75,7 +75,7 @@ function buildAuthorizeUrl(publicKey: string, redirectUri: string): string {
   const params = new URLSearchParams({
     pk: publicKey,
     redirect_uri: redirectUri,
-    kn: "mimocode",
+    kn: "nexuscode",
     key_name: getKeyName(),
   })
   return `${PLATFORM_URL}/authorize?${params.toString()}`
@@ -120,7 +120,7 @@ export async function MimoAuthPlugin(_input: PluginInput): Promise<Hooks> {
             })
             const addr = server.address()
             const port = typeof addr === "object" && addr ? addr.port : 0
-            log.info("mimo oauth server started", { port })
+            log.info("nexus oauth server started", { port })
 
             const redirectUri = `http://localhost:${port}/`
             const authUrl = buildAuthorizeUrl(publicKey, redirectUri)
@@ -136,12 +136,12 @@ export async function MimoAuthPlugin(_input: PluginInput): Promise<Hooks> {
 
               server.on("request", (req, res) => {
                 const url = new URL(req.url || "/", `http://localhost`)
-                log.info("mimo oauth callback received", { path: url.pathname, query: url.search.substring(0, 100) })
+                log.info("nexus oauth callback received", { path: url.pathname, query: url.search.substring(0, 100) })
 
                 const u = url.searchParams.get("u")
 
                 if (!u) {
-                  log.warn("mimo oauth callback missing u param")
+                  log.warn("nexus oauth callback missing u param")
                   res.writeHead(302, { Location: `${PLATFORM_URL}/authorize/callback?status=error&message=missing_data` })
                   res.end()
                   reject(new Error("Missing encrypted data"))
@@ -150,13 +150,13 @@ export async function MimoAuthPlugin(_input: PluginInput): Promise<Hooks> {
 
                 try {
                   const result = decrypt(privateKeyDer, u)
-                  log.info("mimo oauth decrypt success", { uid: result.uid, url: result.url })
+                  log.info("nexus oauth decrypt success", { uid: result.uid, url: result.url })
                   res.writeHead(302, { Location: `${PLATFORM_URL}/authorize/callback?status=success` })
                   res.end()
                   clearTimeout(timeout)
                   resolve(result)
                 } catch (err) {
-                  log.error("mimo oauth decrypt failed", { error: err })
+                  log.error("nexus oauth decrypt failed", { error: err })
                   res.writeHead(302, { Location: `${PLATFORM_URL}/authorize/callback?status=error&message=decrypt_failed` })
                   res.end()
                   reject(new Error("Decryption failed"))
@@ -199,7 +199,7 @@ export async function MimoAuthPlugin(_input: PluginInput): Promise<Hooks> {
     },
     "chat.headers": async (input, output) => {
       if (input.model.providerID !== "xiaomi") return
-      output.headers["X-Mimo-Source"] = "mimocode-cli"
+      output.headers["X-Mimo-Source"] = "nexuscode-cli"
     },
   }
 }

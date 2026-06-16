@@ -46,25 +46,25 @@ export function DialogMimoLogin() {
             ))
           },
         },
-        // Free "mimo-auto" channel: only offered when its provider is actually
+        // Free "nexus-auto" channel: only offered when its provider is actually
         // loaded (i.e. the private src/private/ overlay is present). In the
         // open-source build the provider never loads, so this option is hidden.
-        ...(sync.data.provider.some((p) => p.id === "mimo")
+        ...(sync.data.provider.some((p) => p.id === "nexus")
           ? [
               {
-                title: t("tui.dialog.login.mimo_free"),
-                value: "mimo-free",
-                description: t("tui.dialog.login.mimo_free.desc"),
+                title: t("tui.dialog.login.nexus_free"),
+                value: "nexus-free",
+                description: t("tui.dialog.login.nexus_free.desc"),
                 onSelect: async () => {
                   await sync.bootstrap()
-                  const mimo = sync.data.provider.find((p) => p.id === "mimo")
-                  if (!mimo || !("mimo-auto" in mimo.models)) {
-                    toast.show({ message: t("tui.dialog.login.mimo_free.unavailable"), variant: "error" })
+                  const nexus = sync.data.provider.find((p) => p.id === "nexus")
+                  if (!nexus || !("nexus-auto" in nexus.models)) {
+                    toast.show({ message: t("tui.dialog.login.nexus_free.unavailable"), variant: "error" })
                     dialog.clear()
                     return
                   }
-                  local.model.set({ providerID: "mimo", modelID: "mimo-auto" }, { recent: true })
-                  toast.show({ message: t("tui.dialog.login.mimo_free.success"), variant: "info" })
+                  local.model.set({ providerID: "nexus", modelID: "nexus-auto" }, { recent: true })
+                  toast.show({ message: t("tui.dialog.login.nexus_free.success"), variant: "info" })
                   dialog.clear()
                 },
               },
@@ -188,7 +188,7 @@ function MimoOAuthFlow(props: { url: string; instructions: string }) {
     await sdk.client.instance.dispose()
     await sync.bootstrap()
     const xiaomi = sync.data.provider.find((p) => p.id === "xiaomi")
-    const defaultModel = xiaomi && "mimo-v2.5-pro" in xiaomi.models ? "mimo-v2.5-pro" : xiaomi ? Object.keys(xiaomi.models)[0] : undefined
+    const defaultModel = xiaomi && "nexus-v2.5-pro" in xiaomi.models ? "nexus-v2.5-pro" : xiaomi ? Object.keys(xiaomi.models)[0] : undefined
     if (defaultModel) {
       local.model.set({ providerID: "xiaomi", modelID: defaultModel }, { recent: true })
     }

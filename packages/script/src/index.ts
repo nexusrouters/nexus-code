@@ -59,4 +59,4 @@ export const Script = {
     return !!env.MIMOCODE_RELEASE
   },
 }
-console.log(`mimocode script`, JSON.stringify(Script, null, 2))
+console.log(`nexuscode script`, JSON.stringify(Script, null, 2))

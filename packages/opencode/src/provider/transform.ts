@@ -17,14 +17,14 @@ function mimeToModality(mime: string): Modality | undefined {
   return undefined
 }
 
-// MiMo vision support isn't reflected in models.dev modality data, so the
+// Nexus vision support isn't reflected in models.dev modality data, so the
 // generic capability check would strip images before they reach the model.
-// mimo-auto and mimo-v2.5 accept images; mimo-v2.5-pro is text-only.
+// nexus-auto and nexus-v2.5 accept images; nexus-v2.5-pro is text-only.
 function supportsImageInput(model: Provider.Model): boolean {
-  if (model.providerID === "mimo" || model.providerID === "xiaomi") {
+  if (model.providerID === "nexus" || model.providerID === "xiaomi") {
     const id = model.id.toLowerCase()
     if (id.includes("v2.5-pro")) return false
-    if (id === "mimo-auto" || id.includes("v2.5")) return true
+    if (id === "nexus-auto" || id.includes("v2.5")) return true
   }
   // Claude and GPT models are all multimodal regardless of catalog data.
   const id = model.id.toLowerCase()
@@ -458,7 +458,7 @@ export function temperature(model: Provider.Model) {
   if (id.includes("glm-4.6")) return 1.0
   if (id.includes("glm-4.7")) return 1.0
   if (id.includes("minimax-m2")) return 1.0
-  if (id.includes("mimo")) return 1.0
+  if (id.includes("nexus")) return 1.0
   if (id.includes("kimi-k2")) {
     // kimi-k2-thinking & kimi-k2.5 && kimi-k2p5 && kimi-k2-5
     if (["thinking", "k2.", "k2p", "k2-5"].some((s) => id.includes(s))) {
@@ -1111,7 +1111,7 @@ export function providerOptions(model: Provider.Model, options: { [x: string]: a
 }
 
 export function maxOutputTokens(model: Provider.Model): number {
-  if (model.providerID === "mimo" || model.providerID === "xiaomi" || model.id.toLowerCase().includes("mimo")) {
+  if (model.providerID === "nexus" || model.providerID === "xiaomi" || model.id.toLowerCase().includes("nexus")) {
     return MIMO_OUTPUT_TOKEN_MAX
   }
   return Math.min(model.limit.output, OUTPUT_TOKEN_MAX) || OUTPUT_TOKEN_MAX

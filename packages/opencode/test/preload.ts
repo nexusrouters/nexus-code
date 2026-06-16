@@ -7,7 +7,7 @@ import { setTimeout as sleep } from "node:timers/promises"
 import { afterAll } from "bun:test"
 
 // Set XDG env vars FIRST, before any src/ imports
-const dir = path.join(os.tmpdir(), "mimocode-test-data-" + process.pid)
+const dir = path.join(os.tmpdir(), "nexuscode-test-data-" + process.pid)
 await fs.mkdir(dir, { recursive: true })
 
 // Route fixture tmpdirs under this per-PID dir so the afterAll rm below
@@ -57,7 +57,7 @@ process.env["MIMOCODE_TEST_MANAGED_CONFIG_DIR"] = testManagedConfigDir
 process.env["MIMOCODE_DISABLE_DEFAULT_PLUGINS"] = "true"
 
 // Write the cache version file to prevent global/index.ts from clearing the cache
-const cacheDir = path.join(dir, "cache", "mimocode")
+const cacheDir = path.join(dir, "cache", "nexuscode")
 await fs.mkdir(cacheDir, { recursive: true })
 await fs.writeFile(path.join(cacheDir, "version"), "14")
 

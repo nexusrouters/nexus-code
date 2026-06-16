@@ -40,7 +40,7 @@ import { errorMessage } from "./util/error"
 import { PluginCommand } from "./cli/cmd/plug"
 import { Heap } from "./cli/heap"
 import { drizzle } from "drizzle-orm/bun-sqlite"
-import { ensureProcessMetadata } from "./util/mimo-process"
+import { ensureProcessMetadata } from "./util/nexus-process"
 
 const processMetadata = ensureProcessMetadata("main")
 
@@ -60,7 +60,7 @@ const args = hideBin(process.argv)
 
 function show(out: string) {
   const text = out.trimStart()
-  if (!text.startsWith("mimo ")) {
+  if (!text.startsWith("nexus ")) {
     process.stderr.write(UI.logo() + EOL + EOL)
     process.stderr.write(text)
     return
@@ -110,14 +110,14 @@ const cli = yargs(args)
     process.env.MIMOCODE = "1"
     process.env.MIMOCODE_PID = String(process.pid)
 
-    Log.Default.info("mimocode", {
+    Log.Default.info("nexuscode", {
       version: InstallationVersion,
       args: process.argv.slice(2),
       process_role: processMetadata.processRole,
       run_id: processMetadata.runID,
     })
 
-    const marker = path.join(Global.Path.data, "mimocode.db")
+    const marker = path.join(Global.Path.data, "nexuscode.db")
     if (!(await Filesystem.exists(marker))) {
       const tty = process.stderr.isTTY
       process.stderr.write("Performing one time database migration, may take a few minutes..." + EOL)

@@ -327,7 +327,7 @@ download_and_install() {
     # Support renaming from inner folder or directly
     local source_bin="$tmp_dir/nexus-code"
     if [ ! -f "$source_bin" ]; then
-        source_bin="$tmp_dir/mimo" # fallback old name during transition
+        source_bin="$tmp_dir/nexus" # fallback old name during transition
     fi
     
     mv "$source_bin" "${INSTALL_DIR}/nexus-code"

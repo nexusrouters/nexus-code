@@ -106,7 +106,7 @@ export function recallHintLines(toolCfg: ToolStyleConfig | undefined): string[] 
  * Cap on goal-driven main-loop re-entries per turn — the safety valve against
  * a never-satisfiable condition burning tokens forever. Higher than spawned
  * actors' MAX_PRE_REACT (=3) because main-session goals are usually larger.
- * TODO: lift to mimocode.json config (e.g. session.maxGoalReact).
+ * TODO: lift to nexuscode.json config (e.g. session.maxGoalReact).
  */
 const MAX_GOAL_REACT = 12
 
@@ -176,7 +176,7 @@ const INVALID_OUTPUT_CONTINUATION_LIMIT = Flag.MIMOCODE_INVALID_OUTPUT_CONTINUAT
 const log = Log.create({ service: "session.prompt" })
 
 function isExtensionPath(filePath: string): boolean {
-  return /\/\.mimocode\/(tools?|skills?|hooks?)\//.test(filePath)
+  return /\/\.nexuscode\/(tools?|skills?|hooks?)\//.test(filePath)
 }
 const elog = EffectLogger.create({ service: "session.prompt" })
 
@@ -2187,7 +2187,7 @@ NOTE: At any point in time through this workflow you should feel free to ask the
 
           // F37: filter by agentID so subagent slices stay isolated from the
           // main agent's slice within the same session. Without this, an actor
-          // (explore/general/etc) spawned via mimocode's shared-sessionID
+          // (explore/general/etc) spawned via nexuscode's shared-sessionID
           // design would see the parent's full conversation here and drift
           // off-task. agentID === "main" => main agent slice (agent_id = 'main'
           // in DB), agentID === "explore-1" => only explore-1's slice.

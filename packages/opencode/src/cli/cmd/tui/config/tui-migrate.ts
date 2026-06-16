@@ -29,13 +29,13 @@ interface MigrateInput {
 }
 
 /**
- * Migrates tui-specific keys (theme, keybinds, tui) from mimocode.json files
+ * Migrates tui-specific keys (theme, keybinds, tui) from nexuscode.json files
  * into dedicated tui.json files. Migration is performed per-directory and
  * skips only locations where a tui.json already exists.
  */
 export async function migrateTuiConfig(input: MigrateInput) {
-  const mimocode = await mimocodeFiles(input)
-  for (const file of mimocode) {
+  const nexuscode = await nexuscodeFiles(input)
+  for (const file of nexuscode) {
     const source = await Filesystem.readText(file).catch((error) => {
       log.warn("failed to read config for tui migration", { path: file, error })
       return undefined
@@ -131,13 +131,13 @@ async function backupAndStripLegacy(file: string, source: string) {
     })
 }
 
-async function mimocodeFiles(input: { directories: string[]; cwd: string }) {
+async function nexuscodeFiles(input: { directories: string[]; cwd: string }) {
   const files = [
-    ...ConfigPaths.fileInDirectory(Global.Path.config, "mimocode"),
-    ...(await Filesystem.findUp(["mimocode.json", "mimocode.jsonc"], input.cwd, undefined, { rootFirst: true })),
+    ...ConfigPaths.fileInDirectory(Global.Path.config, "nexuscode"),
+    ...(await Filesystem.findUp(["nexuscode.json", "nexuscode.jsonc"], input.cwd, undefined, { rootFirst: true })),
   ]
   for (const dir of unique(input.directories)) {
-    files.push(...ConfigPaths.fileInDirectory(dir, "mimocode"))
+    files.push(...ConfigPaths.fileInDirectory(dir, "nexuscode"))
   }
   if (Flag.MIMOCODE_CONFIG) files.push(Flag.MIMOCODE_CONFIG)
 

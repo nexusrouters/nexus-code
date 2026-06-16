@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test"
 import crypto from "crypto"
-import { MimoAuthPlugin } from "../../src/plugin/mimo"
+import { MimoAuthPlugin } from "../../src/plugin/nexus"
 import type { PluginInput } from "@nexus-code/plugin"
 
 function encrypt(recipientPkBase64: string, payload: string): string {
@@ -41,7 +41,7 @@ const fakeInput = {
 
 describe("MimoAuthPlugin", () => {
   describe("config hook", () => {
-    test("registers mimo provider with correct name", async () => {
+    test("registers nexus provider with correct name", async () => {
       const hooks = await MimoAuthPlugin(fakeInput)
       const cfg: any = {}
       await hooks.config!(cfg)
@@ -69,7 +69,7 @@ describe("MimoAuthPlugin", () => {
   })
 
   describe("auth hook structure", () => {
-    test("registers auth for mimo provider", async () => {
+    test("registers auth for nexus provider", async () => {
       const hooks = await MimoAuthPlugin(fakeInput)
       expect(hooks.auth).toBeDefined()
       expect(hooks.auth!.provider).toBe("xiaomi")
@@ -93,8 +93,8 @@ describe("MimoAuthPlugin", () => {
       expect(url.pathname).toContain("/authorize")
       expect(url.searchParams.get("pk")).toBeTruthy()
       expect(url.searchParams.get("redirect_uri")).toBeTruthy()
-      expect(url.searchParams.get("kn")).toBe("mimocode")
-      expect(url.searchParams.get("key_name")).toMatch(/^mimo-code-cli-key-/)
+      expect(url.searchParams.get("kn")).toBe("nexuscode")
+      expect(url.searchParams.get("key_name")).toMatch(/^nexus-code-cli-key-/)
 
       await result.callback("invalid").catch(() => {})
     })
@@ -219,11 +219,11 @@ describe("MimoAuthPlugin", () => {
   })
 
   describe("chat.headers hook", () => {
-    test("adds X-Mimo-Source header for mimo provider", async () => {
+    test("adds X-Mimo-Source header for nexus provider", async () => {
       const hooks = await MimoAuthPlugin(fakeInput)
       const output = { headers: {} as Record<string, string> }
       await hooks["chat.headers"]!({ model: { providerID: "xiaomi" } } as any, output as any)
-      expect(output.headers["X-Mimo-Source"]).toBe("mimocode-cli")
+      expect(output.headers["X-Mimo-Source"]).toBe("nexuscode-cli")
     })
 
     test("does not add header for other providers", async () => {

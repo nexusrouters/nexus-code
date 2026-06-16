@@ -15,7 +15,7 @@ import type { EventSource } from "./context/sdk"
 import { win32DisableProcessedInput, win32InstallCtrlCGuard } from "./win32"
 import { writeHeapSnapshot } from "v8"
 import { TuiConfig } from "./config/tui"
-import { MIMOCODE_PROCESS_ROLE, MIMOCODE_RUN_ID, ensureRunID, sanitizedProcessEnv } from "@/util/mimo-process"
+import { MIMOCODE_PROCESS_ROLE, MIMOCODE_RUN_ID, ensureRunID, sanitizedProcessEnv } from "@/util/nexus-process"
 import { checkTrust, markTrusted } from "@/project/workspace-trust"
 import { t } from "@/cli/i18n"
 
@@ -126,12 +126,12 @@ async function promptWorkspaceTrust(directory: string, level: "untrusted" | "dan
 
 export const TuiThreadCommand = cmd({
   command: "$0 [project]",
-  describe: "start mimocode tui",
+  describe: "start nexuscode tui",
   builder: (yargs) =>
     withNetworkOptions(yargs)
       .positional("project", {
         type: "string",
-        describe: "path to start mimocode in",
+        describe: "path to start nexuscode in",
       })
       .option("model", {
         type: "string",

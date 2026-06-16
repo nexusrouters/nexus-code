@@ -24,7 +24,7 @@ import nightowl from "./theme/nightowl.json" with { type: "json" }
 import nord from "./theme/nord.json" with { type: "json" }
 import osakaJade from "./theme/osaka-jade.json" with { type: "json" }
 import onedark from "./theme/one-dark.json" with { type: "json" }
-import mimocode from "./theme/mimocode.json" with { type: "json" }
+import nexuscode from "./theme/nexuscode.json" with { type: "json" }
 import orng from "./theme/orng.json" with { type: "json" }
 import lucentOrng from "./theme/lucent-orng.json" with { type: "json" }
 import palenight from "./theme/palenight.json" with { type: "json" }
@@ -86,9 +86,9 @@ export type ThemeJson = {
 }
 
 const PLAIN_TERMINAL_THEME: ThemeJson = {
-  ...mimocode,
+  ...nexuscode,
   theme: {
-    ...mimocode.theme,
+    ...nexuscode.theme,
     text: {
       dark: "darkStep12",
       light: "lightStep12",
@@ -142,7 +142,7 @@ export const DEFAULT_THEMES: Record<string, ThemeJson> = {
   nord,
   ["one-dark"]: onedark,
   ["osaka-jade"]: osakaJade,
-  mimocode,
+  nexuscode,
   orng,
   ["lucent-orng"]: lucentOrng,
   palenight,
@@ -190,7 +190,7 @@ const [store, setStore] = createStore<State>({
   themes: listThemes(),
   mode: "dark",
   lock: undefined,
-  active: "mimocode",
+  active: "nexuscode",
   ready: false,
 })
 
@@ -355,8 +355,8 @@ export const { use: useTheme, provider: ThemeProvider } = createSimpleContext({
         }
         draft.mode = mode
         draft.lock = lock
-        const active = props.plain ? "system" : config.theme ?? kv.get("theme", "mimocode")
-        draft.active = typeof active === "string" ? active : "mimocode"
+        const active = props.plain ? "system" : config.theme ?? kv.get("theme", "nexuscode")
+        draft.active = typeof active === "string" ? active : "nexuscode"
         draft.ready = false
       }),
     )
@@ -376,7 +376,7 @@ export const { use: useTheme, provider: ThemeProvider } = createSimpleContext({
             syncThemes()
           })
           .catch(() => {
-            setStore("active", "mimocode")
+            setStore("active", "nexuscode")
           }),
       ]).finally(() => {
         setStore("ready", true)
@@ -395,7 +395,7 @@ export const { use: useTheme, provider: ThemeProvider } = createSimpleContext({
             systemTheme = undefined
             syncThemes()
             if (store.active === "system") {
-              setStore("active", "mimocode")
+              setStore("active", "nexuscode")
             }
             return
           }
@@ -406,7 +406,7 @@ export const { use: useTheme, provider: ThemeProvider } = createSimpleContext({
           systemTheme = undefined
           syncThemes()
           if (store.active === "system") {
-            setStore("active", "mimocode")
+            setStore("active", "nexuscode")
           }
         })
     }
@@ -477,7 +477,7 @@ export const { use: useTheme, provider: ThemeProvider } = createSimpleContext({
         if (theme) return resolveTheme(theme, store.mode)
       }
 
-      return resolveTheme(store.themes.mimocode, store.mode)
+      return resolveTheme(store.themes.nexuscode, store.mode)
     })
 
     createEffect(() => {
@@ -539,7 +539,7 @@ async function getCustomThemes() {
     Global.Path.config,
     ...(await Array.fromAsync(
       Filesystem.up({
-        targets: [".mimocode"],
+        targets: [".nexuscode"],
         start: process.cwd(),
       }),
     )),

@@ -25,7 +25,7 @@ interface RemovalTargets {
 
 export const UninstallCommand = {
   command: "uninstall",
-  describe: "uninstall mimocode and remove all related files",
+  describe: "uninstall nexuscode and remove all related files",
   builder: (yargs: Argv) =>
     yargs
       .option("keep-config", {
@@ -133,10 +133,10 @@ async function showRemovalSummary(targets: RemovalTargets, method: Installation.
       npm: "npm uninstall -g @nexus-code/cli",
       pnpm: "pnpm uninstall -g @nexus-code/cli",
       bun: "bun remove -g @nexus-code/cli",
-      // TODO(mimocode): uncomment when published to these channels
-      // brew: "brew uninstall mimocode",
-      // choco: "choco uninstall mimocode",
-      // scoop: "scoop uninstall mimocode",
+      // TODO(nexuscode): uncomment when published to these channels
+      // brew: "brew uninstall nexuscode",
+      // choco: "choco uninstall nexuscode",
+      // scoop: "scoop uninstall nexuscode",
     }
     prompts.log.info(`  ✓ Package: ${cmds[method] || method}`)
   }
@@ -184,10 +184,10 @@ async function executeUninstall(method: Installation.Method, targets: RemovalTar
       npm: ["npm", "uninstall", "-g", "@nexus-code/cli"],
       pnpm: ["pnpm", "uninstall", "-g", "@nexus-code/cli"],
       bun: ["bun", "remove", "-g", "@nexus-code/cli"],
-      // TODO(mimocode): uncomment when published to these channels
-      // brew: ["brew", "uninstall", "mimocode"],
-      // choco: ["choco", "uninstall", "mimocode"],
-      // scoop: ["scoop", "uninstall", "mimocode"],
+      // TODO(nexuscode): uncomment when published to these channels
+      // brew: ["brew", "uninstall", "nexuscode"],
+      // choco: ["choco", "uninstall", "nexuscode"],
+      // scoop: ["scoop", "uninstall", "nexuscode"],
     }
 
     const cmd = cmds[method]
@@ -213,7 +213,7 @@ async function executeUninstall(method: Installation.Method, targets: RemovalTar
     prompts.log.info(`  rm "${targets.binary}"`)
 
     const binDir = path.dirname(targets.binary)
-    if (binDir.includes(".mimocode")) {
+    if (binDir.includes(".nexuscode")) {
       prompts.log.info(`  rmdir "${binDir}" 2>/dev/null`)
     }
   }
@@ -264,7 +264,7 @@ async function getShellConfigFile(): Promise<string | null> {
     if (!exists) continue
 
     const content = await Filesystem.readText(file).catch(() => "")
-    if (content.includes("# mimocode") || content.includes(".mimocode/bin")) {
+    if (content.includes("# nexuscode") || content.includes(".nexuscode/bin")) {
       return file
     }
   }
@@ -282,21 +282,21 @@ async function cleanShellConfig(file: string) {
   for (const line of lines) {
     const trimmed = line.trim()
 
-    if (trimmed === "# mimocode") {
+    if (trimmed === "# nexuscode") {
       skip = true
       continue
     }
 
     if (skip) {
       skip = false
-      if (trimmed.includes(".mimocode/bin") || trimmed.includes("fish_add_path")) {
+      if (trimmed.includes(".nexuscode/bin") || trimmed.includes("fish_add_path")) {
         continue
       }
     }
 
     if (
-      (trimmed.startsWith("export PATH=") && trimmed.includes(".mimocode/bin")) ||
-      (trimmed.startsWith("fish_add_path") && trimmed.includes(".mimocode"))
+      (trimmed.startsWith("export PATH=") && trimmed.includes(".nexuscode/bin")) ||
+      (trimmed.startsWith("fish_add_path") && trimmed.includes(".nexuscode"))
     ) {
       continue
     }

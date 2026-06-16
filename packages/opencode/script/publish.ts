@@ -44,7 +44,7 @@ await Bun.file(`./dist/${pkg.name}/package.json`).write(
       version: version,
       description: "Nexus Code: Where Models and Agents Co-Evolve",
       license: "MIT",
-      author: "Xiaomi MiMo Team",
+      author: "Nexus Code Team",
       homepage: "https://nexusrouter.net",
       repository: {
         type: "git",
@@ -53,9 +53,9 @@ await Bun.file(`./dist/${pkg.name}/package.json`).write(
       bugs: {
         url: "https://github.com/nexusrouters/nexus-code/issues",
       },
-      keywords: ["ai", "cli", "code", "xiaomi", "mimo", "mimocode"],
+      keywords: ["ai", "cli", "code", "xiaomi", "nexus", "nexuscode"],
       bin: {
-        mimo: "./bin/mimo",
+        nexus: "./bin/nexus",
       },
       scripts: {
         postinstall: "bun ./postinstall.mjs || node ./postinstall.mjs",

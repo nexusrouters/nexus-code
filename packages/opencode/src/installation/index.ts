@@ -55,7 +55,7 @@ export const Info = z
   })
 export type Info = z.infer<typeof Info>
 
-export const USER_AGENT = `mimocode/${InstallationChannel}/${InstallationVersion}/${Flag.MIMOCODE_CLIENT}`
+export const USER_AGENT = `nexuscode/${InstallationChannel}/${InstallationVersion}/${Flag.MIMOCODE_CLIENT}`
 
 export function isPreview() {
   return InstallationChannel !== "latest"
@@ -69,7 +69,7 @@ export class UpgradeFailedError extends Schema.TaggedErrorClass<UpgradeFailedErr
   stderr: Schema.String,
 }) {}
 
-// TODO(mimocode): uncomment when corresponding channels are supported
+// TODO(nexuscode): uncomment when corresponding channels are supported
 // const GitHubRelease = Schema.Struct({ tag_name: Schema.String })
 const NpmPackage = Schema.Struct({ version: Schema.String })
 // const BrewFormula = Schema.Struct({ versions: Schema.Struct({ stable: Schema.String }) })
@@ -133,7 +133,7 @@ export const layer: Layer.Layer<Service, never, HttpClient.HttpClient | ChildPro
         Effect.catch(() => Effect.succeed({ code: ChildProcessSpawner.ExitCode(1), stdout: "", stderr: "" })),
       )
 
-      // TODO(mimocode): uncomment when mimocode is published to homebrew
+      // TODO(nexuscode): uncomment when nexuscode is published to homebrew
       // const getBrewFormula = Effect.fnUntraced(function* () {
       //   const tapFormula = yield* text(["brew", "list", "--formula", "anomalyco/tap/opencode"])
       //   if (tapFormula.includes("opencode")) return "anomalyco/tap/opencode"
@@ -166,7 +166,7 @@ export const layer: Layer.Layer<Service, never, HttpClient.HttpClient | ChildPro
 
       const methodImpl = Effect.fn("Installation.method")(function* () {
         if (process.execPath.includes(path.join(".nexuscode", "bin"))) return "curl" as Method
-        if (process.execPath.includes(path.join(".mimocode", "bin"))) return "curl" as Method
+        if (process.execPath.includes(path.join(".nexuscode", "bin"))) return "curl" as Method
         if (process.execPath.includes(path.join(".local", "bin"))) return "curl" as Method
         const exec = process.execPath.toLowerCase()
 
@@ -174,7 +174,7 @@ export const layer: Layer.Layer<Service, never, HttpClient.HttpClient | ChildPro
           { name: "npm", command: () => text(["npm", "list", "-g", "--depth=0"]) },
           { name: "pnpm", command: () => text(["pnpm", "list", "-g", "--depth=0"]) },
           { name: "bun", command: () => text(["bun", "pm", "ls", "-g"]) },
-          // TODO(mimocode): uncomment when mimocode is published to these channels
+          // TODO(nexuscode): uncomment when nexuscode is published to these channels
           // { name: "brew", command: () => text(["brew", "list", "--formula", "opencode"]) },
           // { name: "scoop", command: () => text(["scoop", "list", "opencode"]) },
           // { name: "choco", command: () => text(["choco", "list", "--limit-output", "opencode"]) },
@@ -201,7 +201,7 @@ export const layer: Layer.Layer<Service, never, HttpClient.HttpClient | ChildPro
       const latestImpl = Effect.fn("Installation.latest")(function* (installMethod?: Method) {
         const detectedMethod = installMethod || (yield* methodImpl())
 
-        // TODO(mimocode): uncomment when mimocode is published to homebrew
+        // TODO(nexuscode): uncomment when nexuscode is published to homebrew
         // if (detectedMethod === "brew") {
         //   const formula = yield* getBrewFormula()
         //   if (formula.includes("/")) {
@@ -242,7 +242,7 @@ export const layer: Layer.Layer<Service, never, HttpClient.HttpClient | ChildPro
           return data.version
         }
 
-        // TODO(mimocode): uncomment when mimocode is published to chocolatey
+        // TODO(nexuscode): uncomment when nexuscode is published to chocolatey
         // if (detectedMethod === "choco") {
         //   const response = yield* httpOk.execute(
         //     HttpClientRequest.get(
@@ -253,7 +253,7 @@ export const layer: Layer.Layer<Service, never, HttpClient.HttpClient | ChildPro
         //   return data.d.results[0].Version
         // }
 
-        // TODO(mimocode): uncomment when mimocode is published to scoop
+        // TODO(nexuscode): uncomment when nexuscode is published to scoop
         // if (detectedMethod === "scoop") {
         //   const response = yield* httpOk.execute(
         //     HttpClientRequest.get(
@@ -264,7 +264,7 @@ export const layer: Layer.Layer<Service, never, HttpClient.HttpClient | ChildPro
         //   return data.version
         // }
 
-        // TODO(mimocode): uncomment when mimocode has github releases
+        // TODO(nexuscode): uncomment when nexuscode has github releases
         // const response = yield* httpOk.execute(
         //   HttpClientRequest.get("https://api.github.com/repos/anomalyco/opencode/releases/latest").pipe(
         //     HttpClientRequest.acceptJson,
@@ -292,7 +292,7 @@ export const layer: Layer.Layer<Service, never, HttpClient.HttpClient | ChildPro
           case "bun":
             result = yield* run(["bun", "install", "-g", `${PACKAGE_NAME}@${target}`])
             break
-          // TODO(mimocode): uncomment when mimocode is published to homebrew
+          // TODO(nexuscode): uncomment when nexuscode is published to homebrew
           // case "brew": {
           //   const formula = yield* getBrewFormula()
           //   const env = { HOMEBREW_NO_AUTO_UPDATE: "1" }
@@ -315,11 +315,11 @@ export const layer: Layer.Layer<Service, never, HttpClient.HttpClient | ChildPro
           //   result = yield* run(["brew", "upgrade", formula], { env })
           //   break
           // }
-          // TODO(mimocode): uncomment when mimocode is published to chocolatey
+          // TODO(nexuscode): uncomment when nexuscode is published to chocolatey
           // case "choco":
           //   result = yield* run(["choco", "upgrade", "opencode", `--version=${target}`, "-y"])
           //   break
-          // TODO(mimocode): uncomment when mimocode is published to scoop
+          // TODO(nexuscode): uncomment when nexuscode is published to scoop
           // case "scoop":
           //   result = yield* run(["scoop", "install", `opencode@${target}`])
           //   break
@@ -327,7 +327,7 @@ export const layer: Layer.Layer<Service, never, HttpClient.HttpClient | ChildPro
             return yield* new UpgradeFailedError({ stderr: `Unknown method: ${m}` })
         }
         if (!result || result.code !== 0) {
-          // TODO(mimocode): restore choco-specific error when choco channel is supported
+          // TODO(nexuscode): restore choco-specific error when choco channel is supported
           // const stderr = m === "choco" ? "not running from an elevated command shell" : result?.stderr || ""
           const stderr = result?.stderr || ""
           return yield* new UpgradeFailedError({ stderr })

@@ -44,7 +44,7 @@ type Result = Awaited<ReturnType<typeof streamText>>
  * - ECONNRESET / EPIPE / ETIMEDOUT — network errors typically caused by
  *   stale keep-alive sockets or upstream proxy timeouts
  * - "SSE read timed out" — `provider.ts:wrapSSE` chunk-timeout fired
- *   (configured per-provider via `chunkTimeout` in mimocode.json). This
+ *   (configured per-provider via `chunkTimeout` in nexuscode.json). This
  *   is HTTP-byte-level: keep-alive comments still count as activity, so
  *   the error only fires when the underlying TCP stream is genuinely dead.
  *
@@ -599,7 +599,7 @@ const live: Layer.Layer<
             : {
                 "x-session-affinity": input.sessionID,
                 ...(input.parentSessionID ? { "x-parent-session-id": input.parentSessionID } : {}),
-                "User-Agent": `mimocode/${InstallationVersion}`,
+                "User-Agent": `nexuscode/${InstallationVersion}`,
               }),
           ...input.model.headers,
           ...headers,

@@ -109,9 +109,9 @@ export const dict = {
   "tui.tips.cycle_sessions":
     "Appuyez sur {highlight}Ctrl+X Right/Left{/highlight} pour parcourir les sessions parent et enfant",
   "tui.tips.config_files":
-    "Créez {highlight}mimocode.json{/highlight} pour la configuration serveur et {highlight}tui.json{/highlight} pour le TUI",
+    "Créez {highlight}nexuscode.json{/highlight} pour la configuration serveur et {highlight}tui.json{/highlight} pour le TUI",
   "tui.tips.global_config":
-    "Placez les paramètres TUI dans {highlight}~/.config/mimocode/tui.json{/highlight} comme configuration globale",
+    "Placez les paramètres TUI dans {highlight}~/.config/nexuscode/tui.json{/highlight} comme configuration globale",
   "tui.tips.schema": "Ajoutez {highlight}$schema{/highlight} à votre config pour l'auto-complétion dans l'éditeur",
   "tui.tips.default_model": "Configurez {highlight}model{/highlight} dans la config pour définir le modèle par défaut",
   "tui.tips.keybinds":
@@ -123,13 +123,13 @@ export const dict = {
   "tui.tips.mcp_oauth":
     "NexusCode gère automatiquement OAuth pour les serveurs MCP distants nécessitant une authentification",
   "tui.tips.custom_command":
-    "Ajoutez des fichiers {highlight}.md{/highlight} dans {highlight}.mimocode/command/{/highlight} pour définir des invites personnalisées réutilisables",
+    "Ajoutez des fichiers {highlight}.md{/highlight} dans {highlight}.nexuscode/command/{/highlight} pour définir des invites personnalisées réutilisables",
   "tui.tips.command_args":
     "Utilisez {highlight}$ARGUMENTS{/highlight}, {highlight}$1{/highlight}, {highlight}$2{/highlight} dans les commandes pour des entrées dynamiques",
   "tui.tips.command_backticks":
     "Utilisez des backticks dans les commandes pour injecter la sortie shell (ex. {highlight}`git status`{/highlight})",
   "tui.tips.custom_agent":
-    "Ajoutez des fichiers {highlight}.md{/highlight} dans {highlight}.mimocode/agent/{/highlight} pour des personas IA spécialisés",
+    "Ajoutez des fichiers {highlight}.md{/highlight} dans {highlight}.nexuscode/agent/{/highlight} pour des personas IA spécialisés",
   "tui.tips.agent_perms":
     "Configurez par agent les permissions des outils {highlight}edit{/highlight}, {highlight}bash{/highlight} et {highlight}webfetch{/highlight}",
   "tui.tips.bash_allow":
@@ -145,38 +145,38 @@ export const dict = {
     "Définissez des commandes de formatage personnalisées par extension de fichier dans la config",
   "tui.tips.lsp": "NexusCode utilise des serveurs LSP pour une analyse de code intelligente",
   "tui.tips.custom_tool":
-    "Créez des fichiers {highlight}.ts{/highlight} dans {highlight}.mimocode/tools/{/highlight} pour définir de nouveaux outils LLM",
+    "Créez des fichiers {highlight}.ts{/highlight} dans {highlight}.nexuscode/tools/{/highlight} pour définir de nouveaux outils LLM",
   "tui.tips.tool_scripts": "Les définitions d'outils peuvent invoquer des scripts en Python, Go, etc.",
   "tui.tips.plugins":
-    "Ajoutez des fichiers {highlight}.ts{/highlight} dans {highlight}.mimocode/plugin/{/highlight} pour des hooks d'événements",
+    "Ajoutez des fichiers {highlight}.ts{/highlight} dans {highlight}.nexuscode/plugin/{/highlight} pour des hooks d'événements",
   "tui.tips.plugin_notify":
     "Utilisez des plugins pour envoyer des notifications système à la fin des sessions",
   "tui.tips.plugin_protect":
     "Créez un plugin pour empêcher NexusCode de lire des fichiers sensibles",
-  "tui.tips.run": "Utilisez {highlight}mimo run{/highlight} pour des scripts non interactifs",
-  "tui.tips.continue": "Utilisez {highlight}mimo --continue{/highlight} pour reprendre la dernière session",
+  "tui.tips.run": "Utilisez {highlight}nexus run{/highlight} pour des scripts non interactifs",
+  "tui.tips.continue": "Utilisez {highlight}nexus --continue{/highlight} pour reprendre la dernière session",
   "tui.tips.attach_cli":
-    "Utilisez {highlight}mimo run -f file.ts{/highlight} pour joindre des fichiers via la CLI",
+    "Utilisez {highlight}nexus run -f file.ts{/highlight} pour joindre des fichiers via la CLI",
   "tui.tips.format_json":
     "Utilisez {highlight}--format json{/highlight} pour une sortie lisible par machine dans les scripts",
-  "tui.tips.serve": "Exécutez {highlight}mimo serve{/highlight} pour exposer l'API NexusCode en mode headless",
+  "tui.tips.serve": "Exécutez {highlight}nexus serve{/highlight} pour exposer l'API NexusCode en mode headless",
   "tui.tips.attach_server":
-    "Utilisez {highlight}mimo run --attach{/highlight} pour vous connecter à un serveur en cours",
-  "tui.tips.upgrade": "Exécutez {highlight}mimo upgrade{/highlight} pour passer à la dernière version",
+    "Utilisez {highlight}nexus run --attach{/highlight} pour vous connecter à un serveur en cours",
+  "tui.tips.upgrade": "Exécutez {highlight}nexus upgrade{/highlight} pour passer à la dernière version",
   "tui.tips.auth_list":
-    "Exécutez {highlight}mimo auth list{/highlight} pour voir tous les fournisseurs configurés",
+    "Exécutez {highlight}nexus auth list{/highlight} pour voir tous les fournisseurs configurés",
   "tui.tips.agent_create":
-    "Exécutez {highlight}mimo agent create{/highlight} pour créer un agent en mode guidé",
+    "Exécutez {highlight}nexus agent create{/highlight} pour créer un agent en mode guidé",
   "tui.tips.github_trigger":
     "Utilisez {highlight}/opencode{/highlight} dans les issues/PR GitHub pour déclencher des actions IA",
   "tui.tips.github_install":
-    "Exécutez {highlight}mimo github install{/highlight} pour configurer le workflow GitHub",
+    "Exécutez {highlight}nexus github install{/highlight} pour configurer le workflow GitHub",
   "tui.tips.github_oc":
     "Commentez {highlight}/oc{/highlight} sur une ligne de PR pour une revue ciblée",
   "tui.tips.theme_system":
     'Utilisez {highlight}"theme": "system"{/highlight} pour suivre les couleurs du terminal',
   "tui.tips.theme_files":
-    "Créez des fichiers de thème JSON dans le dossier {highlight}.mimocode/themes/{/highlight}",
+    "Créez des fichiers de thème JSON dans le dossier {highlight}.nexuscode/themes/{/highlight}",
   "tui.tips.theme_variants": "Les thèmes prennent en charge des variantes claires/sombres pour les deux modes",
   "tui.tips.theme_ansi": "Référencez les couleurs ANSI 0-255 dans des thèmes personnalisés",
   "tui.tips.env_var":
@@ -206,7 +206,7 @@ export const dict = {
   "tui.tips.external_dir":
     "La permission {highlight}external_directory{/highlight} protège les fichiers en dehors du projet",
   "tui.tips.debug_config":
-    "Exécutez {highlight}mimo debug config{/highlight} pour diagnostiquer la configuration",
+    "Exécutez {highlight}nexus debug config{/highlight} pour diagnostiquer la configuration",
   "tui.tips.print_logs":
     "Utilisez l'option {highlight}--print-logs{/highlight} pour afficher des journaux détaillés sur stderr",
   "tui.tips.timeline":
@@ -410,7 +410,7 @@ export const dict = {
   "tui.command.voice.control.title": "Basculer le contrôle vocal (multimodal)",
   "tui.command.voice.control.title_on": "Contrôle vocal : activé (multimodal) — cliquer pour désactiver",
   "tui.command.voice.control.title_off": "Contrôle vocal : désactivé (ASR rapide) — cliquer pour activer",
-  "tui.voice.error.no_auth": "Veuillez d'abord vous connecter à MiMo",
+  "tui.voice.error.no_auth": "Veuillez d'abord vous connecter à Nexus",
   "tui.voice.error.no_recorder": "Aucun outil d'enregistrement trouvé, installez sox",
   "tui.voice.error.too_short": "Enregistrement trop court",
   "tui.voice.error.network": "La transcription a échoué, vérifiez votre réseau",
@@ -424,12 +424,12 @@ export const dict = {
   "tui.command.plugins.list.title": "Plugins",
   "tui.command.plugins.install.title": "Installer un plugin",
 
-  // MiMo Auto (free) — TUI login dialog
-  "tui.dialog.login.mimo_free": "MiMo Auto (free)",
-  "tui.dialog.login.mimo_free.desc": "Canal anonyme gratuit — aucune connexion requise",
-  "tui.dialog.login.mimo_free.success": "MiMo Auto (free) est prêt — modèle par défaut défini sur mimo/mimo-auto",
-  "tui.dialog.login.mimo_free.unavailable": "Fournisseur MiMo Auto (free) non chargé",
-  "tui.dialog.login.flow.title": "Connexion MiMo",
+  // Nexus Auto (free) — TUI login dialog
+  "tui.dialog.login.nexus_free": "Nexus Auto (free)",
+  "tui.dialog.login.nexus_free.desc": "Canal anonyme gratuit — aucune connexion requise",
+  "tui.dialog.login.nexus_free.success": "Nexus Auto (free) est prêt — modèle par défaut défini sur nexus/nexus-auto",
+  "tui.dialog.login.nexus_free.unavailable": "Fournisseur Nexus Auto (free) non chargé",
+  "tui.dialog.login.flow.title": "Connexion Nexus",
   "tui.dialog.login.flow.placeholder": "Collez le code (ou attendez le rappel du navigateur)",
   "tui.dialog.login.flow.busy": "Connexion en cours...",
   "tui.dialog.login.flow.manual_hint": "Le navigateur ne s'est pas ouvert ? Cliquez sur le lien ci-dessous pour copier :",
@@ -440,16 +440,16 @@ export const dict = {
   // CLI: providers command (auth login)
   "cli.providers.select": "Sélectionner un fournisseur",
   "cli.providers.other": "Autre fournisseur",
-  "cli.providers.mimo.recommended_hint": "recommandé",
-  "cli.providers.mimo_free.hint": "Canal anonyme gratuit / mimo-auto",
-  "cli.providers.mimo_free.verifying": "Vérification du canal MiMo Auto (free)...",
-  "cli.providers.mimo_free.ready": "Canal MiMo Auto (free) prêt",
-  "cli.providers.mimo_free.failed": "Échec de la vérification de MiMo Auto (free)",
-  "cli.providers.mimo_free.default_set": "Modèle par défaut défini sur mimo/mimo-auto (contexte 1M, gratuit)",
-  "cli.providers.mimo_free.usage_hint":
-    "Aucune connexion requise — exécutez simplement mimo. Pour les modèles payants/premium, choisissez plutôt la connexion navigateur MiMo.",
-  "cli.providers.mimo_login.decrypt_retry": "Échec du déchiffrement, veuillez réessayer ({remaining} tentatives restantes)",
-  "cli.providers.mimo_login.decrypt_exhausted": "Échec du déchiffrement, nombre maximal de tentatives atteint",
+  "cli.providers.nexus.recommended_hint": "recommandé",
+  "cli.providers.nexus_free.hint": "Canal anonyme gratuit / nexus-auto",
+  "cli.providers.nexus_free.verifying": "Vérification du canal Nexus Auto (free)...",
+  "cli.providers.nexus_free.ready": "Canal Nexus Auto (free) prêt",
+  "cli.providers.nexus_free.failed": "Échec de la vérification de Nexus Auto (free)",
+  "cli.providers.nexus_free.default_set": "Modèle par défaut défini sur nexus/nexus-auto (contexte 1M, gratuit)",
+  "cli.providers.nexus_free.usage_hint":
+    "Aucune connexion requise — exécutez simplement nexus. Pour les modèles payants/premium, choisissez plutôt la connexion navigateur Nexus.",
+  "cli.providers.nexus_login.decrypt_retry": "Échec du déchiffrement, veuillez réessayer ({remaining} tentatives restantes)",
+  "cli.providers.nexus_login.decrypt_exhausted": "Échec du déchiffrement, nombre maximal de tentatives atteint",
 
   // Question i18n — plan_exit
   "tui.question.plan_exit.question": "Le plan {{plan}} est terminé. Voulez-vous basculer vers l'agent build pour commencer l'implémentation ?",

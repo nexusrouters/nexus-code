@@ -3,10 +3,10 @@
   "name": "@nexus-code/plugin",
   "version": "0.1.1",
   "description": "Plugin SDK for extending NexusCode",
-  "keywords": ["mimo", "mimocode", "ai", "plugin", "coding-assistant"],
+  "keywords": ["nexus", "nexuscode", "ai", "plugin", "coding-assistant"],
   "type": "module",
   "license": "MIT",
-  "author": "Xiaomi MiMo Team",
+  "author": "Nexus Code Team",
   "homepage": "https://nexusrouter.net",
   "repository": {
     "type": "git",
