@@ -50,6 +50,7 @@ const migrations = await Promise.all(
 console.log(`Loaded ${migrations.length} migrations`)
 
 const singleFlag = process.argv.includes("--single")
+const winFlag = process.argv.includes("--win")
 const baselineFlag = process.argv.includes("--baseline")
 const skipInstall = process.argv.includes("--skip-install")
 const plugin = createSolidTransformPlugin()
@@ -164,6 +165,8 @@ const targets = singleFlag
 
       return true
     })
+  : winFlag
+  ? allTargets.filter((item) => item.os === "win32" && item.arch === "x64" && item.avx2 !== false)
   : allTargets
 
 await $`rm -rf dist`
