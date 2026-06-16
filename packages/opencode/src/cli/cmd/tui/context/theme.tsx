@@ -609,7 +609,7 @@ function generateSystem(colors: TerminalColors, mode: "dark" | "light"): ThemeJs
 
   return {
     theme: {
-      // Primary colors using Xiaomi Orange
+      // Primary colors using Nexus Orange
       primary: xiaomiOrange,
       secondary: xiaomiOrange,
       accent: xiaomiOrange,

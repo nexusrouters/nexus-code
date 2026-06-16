@@ -371,7 +371,7 @@ export const dict: Record<string, string> = {
   "tui.command.plugins.list.title": "Plugins",
   "tui.command.plugins.install.title": "Install plugin",
   "tui.dialog.login.title": "Select provider",
-  "tui.dialog.login.xiaomi": "Xiaomi",
+  "tui.dialog.login.xiaomi": "Nexus",
   "tui.dialog.login.xiaomi.desc": "(Recommended)",
   "tui.dialog.login.mimo_free": "MiMo Auto (free)",
   "tui.dialog.login.mimo_free.desc": "Anonymous free channel — no login required",
