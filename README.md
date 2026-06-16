@@ -21,8 +21,21 @@ Jalankan perintah berikut di terminal Anda untuk mengunduh dan menginstal binary
 curl -fsSL https://nexusrouter.net/install | bash
 ```
 
-**Windows (PowerShell):**
-Silakan download file binary ZIP dari [GitHub Releases](https://github.com/nexusrouters/nexus-code/releases), ekstrak ke folder pilihan Anda, dan tambahkan folder tersebut ke System environment `PATH` Anda.
+**Windows (PowerShell - Direct Install):**
+Jalankan perintah berikut di PowerShell (Run as Administrator) untuk mendownload, mengekstrak, dan mendaftarkan `nexus-code` ke PATH secara otomatis:
+```powershell
+# Set ExecutionPolicy agar script bisa berjalan (opsional)
+Set-ExecutionPolicy Bypass -Scope Process -Force
+
+# Jalankan instalasi otomatis
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://nexusrouter.net/install.ps1')
+```
+
+Atau jika ingin menginstal secara manual:
+1. Unduh file zip `nexus-code-windows-x64.zip` dari [GitHub Releases](https://github.com/nexusrouters/nexus-code/releases/tag/v0.1.0).
+2. Ekstrak file tersebut ke folder pilihan Anda (misalnya `C:\Program Files\nexus-code`).
+3. Tambahkan path folder tersebut ke System Environment Variables `PATH`.
 
 ### 2. Muat Ulang Terminal
 Buka jendela terminal baru atau jalankan perintah berikut untuk me-load path yang baru ditambahkan:
