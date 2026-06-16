@@ -93,7 +93,7 @@ class DeviceAuth extends Schema.Class<DeviceAuth>("DeviceAuth")({
 class DeviceTokenSuccess extends Schema.Class<DeviceTokenSuccess>("DeviceTokenSuccess")({
   access_token: AccessToken,
   refresh_token: RefreshToken,
-  token_type: Schema.Literal("Bearer"),
+  token_type: Schema.optional(Schema.Literal("Bearer"), { default: () => "Bearer" as const }),
   expires_in: DurationFromSeconds,
 }) {}
 
