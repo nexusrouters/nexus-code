@@ -87,7 +87,9 @@ const loginEffect = Effect.fn("login")(function* (url?: string) {
             const configPath = path.join(Global.Path.config, "config.json")
             let config: any = {}
             try {
-              const text = yield* Effect.promise(() => fs.readFile(configPath, "utf8"))
+              const text = yield* Effect.promise(() =>
+                fs.readFile(configPath, "utf8").catch(() => "{}")
+              )
               config = JSON.parse(text)
             } catch (e) {}
 
