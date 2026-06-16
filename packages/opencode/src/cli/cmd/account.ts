@@ -6,6 +6,9 @@ import { AccountID, OrgID, PollExpired, type PollResult, type AccountError } fro
 import { AppRuntime } from "@/effect/app-runtime"
 import * as Prompt from "../effect/prompt"
 import open from "open"
+import fs from "fs/promises"
+import path from "path"
+import { Global } from "../../global"
 
 const openBrowser = (url: string) => Effect.promise(() => open(url).catch(() => undefined))
 
@@ -75,6 +78,36 @@ const loginEffect = Effect.fn("login")(function* (url?: string) {
     PollSuccess: (r) =>
       Effect.gen(function* () {
         yield* s.stop("Logged in as " + r.email)
+
+        // Auto-configure NexusRouter provider with the retrieved API key
+        const active = yield* service.active()
+        if (Option.isSome(active)) {
+          const tokenOpt = yield* service.token(active.value.id)
+          if (Option.isSome(tokenOpt)) {
+            const configPath = path.join(Global.Path.config, "config.json")
+            let config: any = {}
+            try {
+              const text = yield* Effect.promise(() => fs.readFile(configPath, "utf8"))
+              config = JSON.parse(text)
+            } catch (e) {}
+
+            if (!config.provider) config.provider = {}
+            config.provider.nexusrouter = {
+              npm: "@ai-sdk/openai-compatible",
+              name: "NexusRouter",
+              options: {
+                baseURL: "https://api.nexusrouter.net/v1",
+                apiKey: tokenOpt.value
+              }
+            }
+
+            try {
+              yield* Effect.promise(() => fs.mkdir(path.dirname(configPath), { recursive: true }))
+              yield* Effect.promise(() => fs.writeFile(configPath, JSON.stringify(config, null, 2)))
+            } catch (e) {}
+          }
+        }
+
         yield* Prompt.outro("Done")
       }),
     PollExpired: () => s.stop("Device code expired", 1),
