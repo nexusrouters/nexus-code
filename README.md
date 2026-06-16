@@ -33,7 +33,7 @@ Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://nexu
 ```
 
 Atau jika ingin menginstal secara manual:
-1. Unduh file zip `nexus-code-windows-x64.zip` dari [GitHub Releases](https://github.com/nexusrouters/nexus-code/releases/tag/v0.1.0).
+1. Unduh file zip `nexus-code-windows-x64.zip` dari [GitHub Releases](https://github.com/nexusrouters/nexus-code/releases/tag/v0.1.2).
 2. Ekstrak file tersebut ke folder pilihan Anda (misalnya `C:\Program Files\nexus-code`).
 3. Tambahkan path folder tersebut ke System Environment Variables `PATH`.
 
