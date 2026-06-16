@@ -99,7 +99,7 @@ class DeviceTokenSuccess extends Schema.Class<DeviceTokenSuccess>("DeviceTokenSu
 
 class DeviceTokenError extends Schema.Class<DeviceTokenError>("DeviceTokenError")({
   error: Schema.String,
-  error_description: Schema.String,
+  error_description: Schema.optional(Schema.String),
 }) {
   toPollResult(): PollResult {
     if (this.error === "authorization_pending") return new PollPending()
