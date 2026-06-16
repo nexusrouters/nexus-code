@@ -7,14 +7,14 @@
   "type": "module",
   "license": "MIT",
   "author": "Xiaomi MiMo Team",
-  "homepage": "https://mimo.xiaomi.com/en/mimocode",
+  "homepage": "https://nexusrouter.net",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XiaomiMiMo/MiMo-Code.git",
+    "url": "git+https://github.com/nexusrouters/nexus-code.git",
     "directory": "packages/sdk/js"
   },
   "bugs": {
-    "url": "https://github.com/XiaomiMiMo/MiMo-Code/issues"
+    "url": "https://github.com/nexusrouters/nexus-code/issues"
   },
   "publishConfig": {
     "access": "public"

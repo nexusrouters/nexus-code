@@ -394,7 +394,7 @@ export const dict: Record<string, string> = {
   "tui.dialog.login.import_claude.read_failed": "Failed to read ~/.claude/settings.json",
   "tui.dialog.login.import_claude.success": "Imported from Claude Code",
   "tui.dialog.login.start_failed": "Failed to start login",
-  "tui.dialog.login.flow.title": "MiMo Login",
+  "tui.dialog.login.flow.title": "Nexus Login",
   "tui.dialog.login.flow.placeholder": "Paste Code (or wait for browser callback)",
   "tui.dialog.login.flow.busy": "Logging in...",
   "tui.dialog.login.flow.manual_hint": "Browser didn't open? Click the link below to copy:",

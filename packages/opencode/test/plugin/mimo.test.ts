@@ -45,7 +45,7 @@ describe("MimoAuthPlugin", () => {
       const hooks = await MimoAuthPlugin(fakeInput)
       const cfg: any = {}
       await hooks.config!(cfg)
-      expect(cfg.provider.xiaomi.name).toBe("MiMo")
+      expect(cfg.provider.xiaomi.name).toBe("Nexus")
       expect(cfg.provider.xiaomi.api).toBeTruthy()
     })
 
@@ -56,7 +56,7 @@ describe("MimoAuthPlugin", () => {
       // The plugin only sets name and api; models are not registered by the plugin
       // (they come from the provider registry). Verify the provider is created.
       expect(cfg.provider.xiaomi).toBeDefined()
-      expect(cfg.provider.xiaomi.name).toBe("MiMo")
+      expect(cfg.provider.xiaomi.name).toBe("Nexus")
     })
 
     test("does not overwrite existing config", async () => {

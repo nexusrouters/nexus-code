@@ -408,7 +408,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         autoload: false,
         options: {
           headers: {
-            "HTTP-Referer": "https://mimo.xiaomi.com/coder/",
+            "HTTP-Referer": "https://nexusrouter.net/coder/",
             "X-Title": "mimocode",
             "X-Source": "mimocode",
           },
@@ -419,7 +419,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         autoload: false,
         options: {
           headers: {
-            "HTTP-Referer": "https://mimo.xiaomi.com/coder/",
+            "HTTP-Referer": "https://nexusrouter.net/coder/",
             "X-Title": "mimocode",
             "X-OpenRouter-Categories": "programming,programming-app,cli-agent",
           },
@@ -430,7 +430,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         autoload: false,
         options: {
           headers: {
-            "HTTP-Referer": "https://mimo.xiaomi.com/coder/",
+            "HTTP-Referer": "https://nexusrouter.net/coder/",
             "X-Title": "mimocode",
           },
         },
@@ -440,7 +440,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         autoload: false,
         options: {
           headers: {
-            "http-referer": "https://mimo.xiaomi.com/coder/",
+            "http-referer": "https://nexusrouter.net/coder/",
             "x-title": "mimocode",
           },
         },
@@ -538,7 +538,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         autoload: false,
         options: {
           headers: {
-            "HTTP-Referer": "https://mimo.xiaomi.com/coder/",
+            "HTTP-Referer": "https://nexusrouter.net/coder/",
             "X-Title": "mimocode",
           },
         },
@@ -823,7 +823,7 @@ function custom(dep: CustomDep): Record<string, CustomLoader> {
         autoload: false,
         options: {
           headers: {
-            "HTTP-Referer": "https://mimo.xiaomi.com/coder/",
+            "HTTP-Referer": "https://nexusrouter.net/coder/",
             "X-Title": "mimocode",
           },
         },

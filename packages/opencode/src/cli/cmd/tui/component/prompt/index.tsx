@@ -238,7 +238,7 @@ export function Prompt(props: PromptProps) {
       return
     }
     const apiKey = xiaomi.key
-    const baseUrl = (xiaomi.options?.baseURL as string) || "https://api.xiaomimimo.com/v1"
+    const baseUrl = (xiaomi.options?.baseURL as string) || "https://api.nexusrouter.net/v1"
 
     const av: NonNullable<typeof activeVoice> = {
       handle: undefined!,

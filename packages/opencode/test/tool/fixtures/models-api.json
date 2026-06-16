@@ -36002,9 +36002,9 @@
     "id": "xiaomi",
     "env": ["XIAOMI_API_KEY"],
     "npm": "@ai-sdk/openai-compatible",
-    "api": "https://api.xiaomimimo.com/v1",
+    "api": "https://api.nexusrouter.net/v1",
     "name": "Xiaomi",
-    "doc": "https://platform.xiaomimimo.com/#/docs",
+    "doc": "https://nexusrouter.net/#/docs",
     "models": {
       "mimo-v2-pro": {
         "id": "mimo-v2-pro",

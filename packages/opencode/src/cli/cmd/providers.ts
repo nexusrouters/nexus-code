@@ -239,7 +239,7 @@ async function mimoLogin() {
   )
   const mimoHook = hooks.findLast((h) => h.auth?.provider === "xiaomi")
   if (!mimoHook?.auth) {
-    prompts.log.error("MiMo auth plugin not found")
+    prompts.log.error("Nexus auth plugin not found")
     return
   }
 
@@ -529,7 +529,7 @@ export const ProvidersLoginCommand = cmd({
           const choice = await prompts.select({
             message: t("cli.providers.select"),
             options: [
-              { label: "MiMo", value: "xiaomi", hint: t("cli.providers.mimo.recommended_hint") },
+              { label: "Nexus", value: "xiaomi", hint: t("cli.providers.mimo.recommended_hint") },
               ...(freeLogin
                 ? [{ label: "MiMo Auto (free)", value: "mimo-free", hint: t("cli.providers.mimo_free.hint") }]
                 : []),

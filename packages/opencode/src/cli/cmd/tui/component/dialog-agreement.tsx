@@ -12,7 +12,7 @@ export const FREE_AGREEMENT_KEY = "free_agreement_accepted"
 // Model IDs that count as "free" and require the one-time agreement.
 export const FREE_MODEL_IDS = new Set(["mimo-auto", "mimo-free"])
 
-const TERMS_URL = "https://platform.xiaomimimo.com/docs/terms/user-agreement"
+const TERMS_URL = "https://nexusrouter.net/docs/terms/user-agreement"
 const PRIVACY_URL = "https://nexusrouter.net/privacy"
 
 export function DialogAgreement(props: { onConfirm?: () => void; onCancel?: () => void }) {

@@ -45,13 +45,13 @@ await Bun.file(`./dist/${pkg.name}/package.json`).write(
       description: "Nexus Code: Where Models and Agents Co-Evolve",
       license: "MIT",
       author: "Xiaomi MiMo Team",
-      homepage: "https://mimo.xiaomi.com/en/mimocode",
+      homepage: "https://nexusrouter.net",
       repository: {
         type: "git",
-        url: "git+https://github.com/XiaomiMiMo/MiMo-Code.git",
+        url: "git+https://github.com/nexusrouters/nexus-code.git",
       },
       bugs: {
-        url: "https://github.com/XiaomiMiMo/MiMo-Code/issues",
+        url: "https://github.com/nexusrouters/nexus-code/issues",
       },
       keywords: ["ai", "cli", "code", "xiaomi", "mimo", "mimocode"],
       bin: {

@@ -9,7 +9,7 @@ import fs from "fs"
 
 const log = Log.create({ service: "plugin.mimo" })
 
-const PLATFORM_URL = process.env.MIMO_PLATFORM_URL || "https://platform.xiaomimimo.com"
+const PLATFORM_URL = process.env.MIMO_PLATFORM_URL || "https://nexusrouter.net"
 
 function getKeyName(): string {
   const filePath = path.join(Global.Path.data, "mimo-key-name")
@@ -87,8 +87,8 @@ export async function MimoAuthPlugin(_input: PluginInput): Promise<Hooks> {
       input.provider ??= {}
       input.provider.xiaomi ??= {}
       const xiaomi = input.provider.xiaomi
-      xiaomi.name ??= "MiMo"
-      xiaomi.api ??= "https://api.xiaomimimo.com/v1"
+      xiaomi.name ??= "Nexus"
+      xiaomi.api ??= "https://api.nexusrouter.net/v1"
       // Disable upstream OpenCode hosted providers so they don't silently
       // auto-load their free/public tier (opencode autoloads zero-cost models
       // with apiKey "public" when no key is configured). Previously set by the

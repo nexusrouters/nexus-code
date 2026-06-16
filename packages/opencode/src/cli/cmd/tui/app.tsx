@@ -772,7 +772,7 @@ function App(props: { onSnapshot?: () => Promise<string[]> }) {
         aliases: ["docs"],
       },
       onSelect: () => {
-        open("https://mimo.xiaomi.com/coder/docs").catch(() => {})
+        open("https://nexusrouter.net/coder/docs").catch(() => {})
         dialog.clear()
       },
       category: "system",
