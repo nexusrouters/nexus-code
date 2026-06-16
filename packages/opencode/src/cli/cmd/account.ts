@@ -36,11 +36,19 @@ const isActiveOrgChoice = (
   choice: { accountID: AccountID; orgID: OrgID },
 ) => Option.isSome(active) && active.value.id === choice.accountID && active.value.active_org_id === choice.orgID
 
-const loginEffect = Effect.fn("login")(function* (url: string) {
+const DEFAULT_NEXUS_LOGIN_URL = "https://nexusrouter.net"
+
+const loginEffect = Effect.fn("login")(function* (url?: string) {
   const service = yield* Account.Service
+  const serverUrl = url?.trim() || DEFAULT_NEXUS_LOGIN_URL
 
   yield* Prompt.intro("Log in")
-  const login = yield* service.login(url)
+  yield* Prompt.log.info("Server: " + serverUrl)
+  yield* Prompt.log.info("Requesting device code...")
+  const login = yield* service.login(serverUrl).pipe(
+    Effect.timeout(Duration.seconds(20)),
+    Effect.catchTag("TimeoutError", () => Effect.fail(new Error("Login request timed out. Check internet/DNS/firewall, then retry."))),
+  )
 
   yield* Prompt.log.info("Go to: " + login.url)
   yield* Prompt.log.info("Enter code: " + login.user)
@@ -173,13 +181,12 @@ const openEffect = Effect.fn("open")(function* () {
 })
 
 export const LoginCommand = cmd({
-  command: "login <url>",
+  command: "login [url]",
   describe: false,
   builder: (yargs) =>
     yargs.positional("url", {
-      describe: "server URL",
+      describe: `server URL (default: ${DEFAULT_NEXUS_LOGIN_URL})`,
       type: "string",
-      demandOption: true,
     }),
   async handler(args) {
     UI.empty()
