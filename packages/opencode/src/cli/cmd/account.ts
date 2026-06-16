@@ -256,3 +256,33 @@ export const ConsoleCommand = cmd({
       .demandCommand(),
   async handler() {},
 })
+
+export const AccountCommand = cmd({
+  command: "account",
+  describe: false,
+  builder: (yargs) =>
+    yargs
+      .command({
+        ...LoginCommand,
+        describe: "log in to account",
+      })
+      .command({
+        ...LogoutCommand,
+        describe: "log out from account",
+      })
+      .command({
+        ...SwitchCommand,
+        describe: "switch active org",
+      })
+      .command({
+        ...OrgsCommand,
+        describe: "list orgs",
+      })
+      .command({
+        ...OpenCommand,
+        describe: "open active account",
+      })
+      .demandCommand(),
+  async handler() {},
+})
+
