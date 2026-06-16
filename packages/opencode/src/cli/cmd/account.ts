@@ -94,13 +94,34 @@ const loginEffect = Effect.fn("login")(function* (url?: string) {
             } catch (e) {}
 
             if (!config.provider) config.provider = {}
+            const models: Record<string, { name: string }> = yield* Effect.promise(async () => {
+              const list: Record<string, { name: string }> = {}
+              try {
+                const res = await fetch("https://api.nexusrouter.net/v1/models", {
+                  headers: { Authorization: `Bearer ${tokenOpt.value}` },
+                })
+                if (res.ok) {
+                  const data: any = await res.json()
+                  if (data && Array.isArray(data.data)) {
+                    for (const m of data.data) {
+                      if (m && typeof m.id === "string") {
+                        list[m.id] = { name: m.name || m.id }
+                      }
+                    }
+                  }
+                }
+              } catch {}
+              return list
+            })
+
             config.provider.nexusrouter = {
               npm: "@ai-sdk/openai-compatible",
               name: "NexusRouter",
               options: {
                 baseURL: "https://api.nexusrouter.net/v1",
                 apiKey: tokenOpt.value
-              }
+              },
+              models,
             }
 
             try {
