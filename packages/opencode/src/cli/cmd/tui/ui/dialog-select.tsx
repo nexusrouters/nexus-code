@@ -45,6 +45,7 @@ export interface DialogSelectOption<T = any> {
   bg?: RGBA
   gutter?: JSX.Element
   margin?: JSX.Element
+  keywords?: string[]
   onSelect?: (ctx: DialogContext) => void
 }
 
